@@ -7,7 +7,7 @@ import Search from './NavBtns/Search';
 import { SlBasket } from "react-icons/sl";
 import { Theme } from '@/app/context/Theme';
 import { FaRegUser } from "react-icons/fa6";
-import NavProfileInfo from './NavProfileInfo';
+import NavProfileInfo from './NavProfileInfo'; 
 
 function Navbar() {
     const { theme } = useContext(Theme)
