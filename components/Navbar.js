@@ -12,7 +12,7 @@ import NavProfileInfo from './NavProfileInfo';
 function Navbar() {
     const { theme } = useContext(Theme)
     const [ShowProfileMenu,setShowProfileMenu]=useState(false)
-    return (
+    return ( 
         <>
             <div className=" w-full h-20 flex justify-center items-center border-b border-[rgb(120,120,120,0.4)] font-mainFont  sticky top-0 backdrop-blur-lg  z-40 ">
                 <div className="w-full max-w-7xl px-11 relative  h-full mx-auto ">
