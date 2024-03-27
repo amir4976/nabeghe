@@ -2,6 +2,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import localFont from 'next/font/local'
+import ThemeProvider from "@/app/context/Theme";
+import ThemeWarper from "@/components/ThemeWarper";
+
 const yekanbakh = localFont({
   src: [
     {
@@ -34,11 +37,18 @@ export const metadata = {
 
 
 export default function RootLayout({ children }) {
+
+
   return (
     <html lang="en">
-      <body className={`${inter.className} ${yekanbakh.variable} bg-black text-white`}>
+      <body className={`${inter.className} ${yekanbakh.variable} `}>
+        <ThemeProvider>
+          <ThemeWarper>
+
         <Navbar/>
         {children}
+          </ThemeWarper>
+        </ThemeProvider>
         </body>
     </html>
   );

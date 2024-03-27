@@ -39,6 +39,7 @@ direction: rtl;
 margin: 0;
 padding: 0;
 box-sizing: border-box;
+
 }
 
 @layer utilities {
@@ -63,4 +64,40 @@ box-sizing: border-box;
 
 .dropdown-menu li:hover .dropdown-submenu {
   display: block;
+}
+
+
+.light{
+  background-color: #000;
+  color: #fff;
+}
+.dark{
+  background-color: #fff;
+  color: #000;
+}
+
+.searchBar{
+  animation: interSearchbox 1s ease;
+
+}
+
+@keyframes interSearchbox {
+  0%{
+    top: -100px;
+  }100%{
+  top: 0;
+  }
+}
+
+.light .basket{
+  color: #fff;
+}
+.dark .basket{
+  color: #000;
+}
+.light .profile-icon{
+  color: #fff;
+}
+.dark .profile-icon{
+  color: #000;
 }

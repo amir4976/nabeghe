@@ -15,10 +15,13 @@ module.exports = {
       colors: {
         "primary-color": "var(--primary)",
         "secondary-color": "var(--secondary)",
+        "primary-BG-gr": "#6161612a",
+        "secondary-BG-gr": "#ffffff00",
       },
       fontFamily: {
         mainFont: ['var(--main-black)']
       }
+
     },
   },
   plugins: [],
