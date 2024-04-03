@@ -26,6 +26,15 @@
 
 }
 
+:root {
+  /* Your default theme */
+  --background: white;
+  --foreground: black;
+
+}
+
+
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -39,9 +48,13 @@ direction: rtl;
 margin: 0;
 padding: 0;
 box-sizing: border-box;
-
+/* background-color: var(--background);
+color: var(--foreground); */
 }
 
+/* .dark{
+  background-color: red;
+} */
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -101,3 +114,40 @@ box-sizing: border-box;
 .dark .profile-icon{
   color: #000;
 }
+
+
+
+.interSideBar-bg{
+  animation: interSideBar-bg 1s;
+}
+
+.interSideBar{
+  animation: interSideBar 1s;
+}
+
+
+@keyframes interSideBar {
+    0%{
+      right: -300px;
+    }100%{
+      right: 0;
+    }
+  
+}
+
+
+@keyframes interSideBar-bg {
+  0%{
+    opacity: 0;
+  }100%{
+    opacity: 1;
+  }
+
+}
+
+
+
+
+
+
+
