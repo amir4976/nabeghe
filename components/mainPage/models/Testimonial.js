@@ -12,14 +12,13 @@ import "swiper/css/effect-cards";
 import { EffectCards ,Autoplay} from "swiper/modules";
 import { MdSchool } from "react-icons/md";
 import TestimonialCard from "../TestimonialCard";
+import HatLogo from "@/components/HatLogo";
 
 export default function Testimonial() {
   return (
     <div className="w-full h-[350px] md:grid md:grid-cols-12   mt-10 font-mainFont">
       <div className="xl:col-span-4 col-span-12 flex items-center gap-5">
-        <div className="flex p-5 items-center justify-center bg-primary-color rounded-full text-xl">
-          <MdSchool />
-        </div>
+            <HatLogo/>
         <div className="flex flex-col ">
           <span className="font-bold text-2xl text-primary-color">
             در مورد نابغه جی میشنویم؟
