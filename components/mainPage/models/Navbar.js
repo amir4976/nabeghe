@@ -27,10 +27,10 @@ function Navbar() {
                                     <span className="mr-1 font-mainFont font-normal text-gray-500 hover:text-white transition-all">دسته بندی اموزشها</span>
                                   
                                 </button>
-                                <ul className={`dropdown-menu w-[300px] absolute border border-primary-BG-gr  text-light pt-0 z-10 font-mainFont bg-black`}>
+                                <ul className={`dropdown-menu w-[250px] absolute border border-gray-600 rounded-md  text-light pt-0 z-10 font-mainFont bg-black`}>
                                     <li>
                                         <a className=" dropSub rounded-t hover:text-blue-600 py-2 px-4 block whitespace-no-wrap" href="#">برنامه نویسی وب</a>
-                                        <ul className={`dropdown-submenu w-96 absolute border-primary-BG-gr pt-0  border border-gray-300 flex-wrap`} >
+                                        <ul className={`dropdown-submenu w-96 absolute border-gray-600 rounded-md   pt-0  border border-gray-300 flex-wrap`} >
                                             <li><a className=" hover:text-blue-600 py-2 px-4 block bg-black" href="#">Two</a></li>
 
                                         </ul>

@@ -23,7 +23,7 @@ const CourseSwiper= ({ data }) => {
           setSlidePRE(2)
           console.log(e.target.innerWidth);
         }
-        if(e.target.innerWidth < 750){
+        if(e.target.innerWidth < 660){
           console.log('object')
           setSlidePRE(1)
         }
@@ -47,21 +47,32 @@ const CourseSwiper= ({ data }) => {
           clickable: true,
         }}
         modules={[ Pagination,Autoplay]}
-        className="mySwiper  h-full w-full"
+        className="mySwiper  h-full w-full "
       >
         {/* for each make one of this later */}
         <SwiperSlide>
+          <div className="w-[350px] max-sm:w-[400px]">
          <FancyCard/>
+          </div>
         </SwiperSlide>
-        <SwiperSlide >
+        <SwiperSlide>
+          <div className="w-[350px] max-sm:w-[400px]">
          <FancyCard/>
+          </div>
         </SwiperSlide>
-        <SwiperSlide >
-          <FancyCard/>
+        <SwiperSlide>
+          <div className="w-[350px] max-sm:w-[400px]">
+         <FancyCard/>
+          </div>
         </SwiperSlide>
-        <SwiperSlide >
-          <FancyCard/>
+        <SwiperSlide>
+          <div className="w-[350px] max-sm:w-[400px]">
+         <FancyCard/>
+          </div>
         </SwiperSlide>
+       
+
+       
       </Swiper>
     </div>
   );

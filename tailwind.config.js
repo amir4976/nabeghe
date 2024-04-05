@@ -16,8 +16,8 @@ module.exports = {
       colors: {
         "primary-color": "var(--primary)",
         "secondary-color": "var(--secondary)",
-        "primary-BG-gr": "#6161612a",
-        "secondary-BG-gr": "#ffffff00",
+        "primary-BG-gr": "rgba(133,133,133,0.12)",
+        "secondary-BG-gr": "rgba(255, 255, 255, 0.00)",
         "primary-transparent": "#5b5b5b54",
       },
       fontFamily: {
