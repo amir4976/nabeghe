@@ -7,7 +7,7 @@ function MainPageTitle({ title, desc, icon }) {
         <div className="flex w-14 h-14 items-center justify-center bg-primary-color rounded-full">
           {icon}
         </div>
-        <div className="flex flex-col ">
+        <div className="flex flex-col mr-4 ">
             <span className="text-primary-color text-3xl">{title}</span>
             <span className="text-light-color text-sm">{desc}</span>
         </div>

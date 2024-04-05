@@ -26,12 +26,12 @@
 
 }
 
-:root {
+/* :root { */
   /* Your default theme */
-  --background: white;
-  --foreground: black;
+  /* --background: white;
+  --foreground: black; */
 
-}
+/* } */
 
 
 
@@ -43,6 +43,9 @@
   }
 }
 
+html,body{
+  scroll-behavior: smooth;
+}
 body {
 direction: rtl;
 margin: 0;
@@ -50,6 +53,8 @@ padding: 0;
 box-sizing: border-box;
 /* background-color: var(--background);
 color: var(--foreground); */
+
+
 }
 
 /* .dark{
@@ -147,7 +152,12 @@ color: var(--foreground); */
 
 
 
+.ltr-com{
+  direction: ltr;
+}
 
 
 
-
+ .activeLinkCourePage{
+  background-color: #000;
+ }

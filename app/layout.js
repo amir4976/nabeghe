@@ -38,7 +38,7 @@ export default function RootLayout({ children }) {
 
 
   return (
-    <html lang="en" data-theme='black' suppressHydrationWarning={true}>
+    <html lang="en" data-theme='light' suppressHydrationWarning={true}>
       <body className={`${inter.className} ${yekanbakh.variable} `}>
         <Navbar/>
         {children}

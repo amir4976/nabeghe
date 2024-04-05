@@ -6,15 +6,18 @@ import { MdOutlineAccessTimeFilled } from "react-icons/md";
 import { GoArrowUpLeft } from "react-icons/go";
 import { FaHeart } from "react-icons/fa";
 import { RiAppsFill } from "react-icons/ri";
+import Poster from '@/public/assets/HldJUMU7RCTrh5sSyjSNrt0MEhmOovM2tToIJnz5.jpg'
 function FancyCard() {
   return (
-    <div className="w-full h-full flex justify-center items-center font-mainFont  ">
-      <div className="w-[400px] h-[480px]   ">
-        <div className="image relative w-full h-[220px] rounded-3xl overflow-auto">
+    <div className="w-full h-full flex justify-center items-center font-mainFont  relative ">
+      <div className="h-full  w-full  ">
+        <div className="image relative  rounded-3xl overflow-auto">
           <Image
-            src={"/assets/9jT3AwCakZ8S12y7tMgKjSMVMCYiRELcUVkJWrIV.jpg"}
+            src={Poster}
             alt="l"
-            fill
+            // width={400}
+            // height={150}
+            // sizes="(min-width: 808px) 50vw, 100vw"
           />
           <div className="courseType absolute z-10 left-4 top-4 flex bg-black/20 px-2 py-1 rounded-lg text-white items-center  ">
           <RiAppsFill />
@@ -23,9 +26,9 @@ function FancyCard() {
           </div>
         </div>
         <div className="fancy-infoSide px-5">
-          <div className="titleBar w-[350px] m-auto h-20 px-5  flex flex-col justify-center rounded-b-3xl  bg-gradient-to-t from-primary-BG-gr to-secondary-BG-gr">
+          <div className="titleBar w-full m-auto h-20 px-5  flex flex-col justify-center rounded-b-3xl  bg-gradient-to-t from-primary-BG-gr to-secondary-BG-gr">
             <span className="completed-persent font-extralight text-sm text-gray-600">
-              0% تکمیل شده
+              0 <span>%</span> تکمیل شده
             </span>
             <span className="titleBar-text font-bold">دوره کامل vue js 3</span>
           </div>
