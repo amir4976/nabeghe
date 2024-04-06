@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect,useState } from 'react'
 import Search from '../NavBtns/Search';
 import { SlBasket } from "react-icons/sl";
 import { FaRegUser } from "react-icons/fa6";
@@ -7,10 +7,29 @@ import NavProfileInfo from '../NavProfileInfo';
 import { FaBars } from "react-icons/fa";
 import Logo from '../Logo';
 import { FiSearch } from "react-icons/fi";
-import { useTheme } from 'next-themes';
+import { useRef } from 'react';
+
 function Navbar() {
+
     const [ShowProfileMenu, setShowProfileMenu] = useState(false);
     const [ShowSideBar, setShowSideBar] = useState(false);
+    const ref = useRef(null);
+    // click out side componnet
+    useEffect(() => {
+      const handleOutSideClick = (event) => {
+        if (!ref.current?.contains(event.target)) {
+          console.log("Outside Clicked. ");
+          setShowProfileMenu(false)
+        }
+      };
+  
+      window.addEventListener("mousedown", handleOutSideClick);
+  
+      return () => {
+        window.removeEventListener("mousedown", handleOutSideClick);
+      };
+    }, [ref]);
+
     return (
         <>
             <div className=" w-full h-20 flex justify-center items-center border-b border-[rgb(120,120,120,0.4)] font-mainFont  sticky top-0 backdrop-blur-lg  z-40 ">
@@ -61,7 +80,7 @@ function Navbar() {
                                 </div>
 
 
-                                <div className="max-w-40 flex items-center gap-3 " onClick={() => setShowProfileMenu((prev) => !prev)}>
+                                <div className="max-w-40 flex items-center gap-3 " ref={ref} onClick={() => setShowProfileMenu((prev) => !prev)}>
                                     <div className="profile-icon w-10 h-10  bg-[rgba(120,120,120,0.33)] rounded-full  justify-center items-center flex">
                                         <FaRegUser />
                                     </div>
