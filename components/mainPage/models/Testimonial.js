@@ -34,17 +34,15 @@ export default function Testimonial() {
           <Swiper
             effect={"cards"}
             grabCursor={true}
-            modules={[EffectCards, Autoplay]}
+            modules={[EffectCards]}
             loop={true}
             className="mySwiper"
-            autoplay={{
-              delay: 2500,
-            }}
+
           >
-            <SwiperSlide>
+            <SwiperSlide className="bg-none rounded-2xl">
               <TestimonialCard />
             </SwiperSlide>
-            <SwiperSlide>
+            <SwiperSlide className="bg-none rounded-2xl">
               <TestimonialCard />
             </SwiperSlide>
           </Swiper>

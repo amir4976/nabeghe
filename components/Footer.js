@@ -12,7 +12,7 @@ function Footer() {
   return (
     <>
       <ScrollToTop />
-      <div className="footerContianer">
+      <div className="footerContianer font-mainFont">
         {/* footer header */}
         <div className="footerHeader grid-flow-column grid grid-cols-12 gap-3 w-full ">
           <div className=" md:col-span-4 col-span-12 flex justify-start items-center">
