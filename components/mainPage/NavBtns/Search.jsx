@@ -7,7 +7,7 @@ export default function Search() {
   const [ShowSearch, setShowSearch] = useState(false);
   return(
     <>
-      <button className={`w-10 h-10 bg-[rgba(120,120,120,0.33)] rounded-full text-light justify-center items-center flex `} onClick={()=> setShowSearch(!ShowSearch)}>
+      <button className={`w-10 h-10  bg-primary-BG-gr rounded-full text-light justify-center items-center flex `} onClick={()=> setShowSearch(!ShowSearch)}>
       <FiSearch />
       </button>
       <div className={`searchBar ${!ShowSearch?"hidden":""} w-full  absolute  top-0 left-0 z-20 h-full bg-black`}>
