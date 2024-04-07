@@ -8,7 +8,14 @@ import { FaBars } from "react-icons/fa";
 import Logo from '../Logo';
 import { FiSearch } from "react-icons/fi";
 import { useRef } from 'react';
+import Link from 'next/link';
+import { FaAngleDown } from "react-icons/fa";
 
+import { HiOutlineSparkles } from "react-icons/hi2";
+import { MdOutlineSchool } from "react-icons/md";
+import { FaMoneyBills } from "react-icons/fa6";
+import { VscCommentDiscussion } from "react-icons/vsc";
+import { PiSignOutBold } from "react-icons/pi";
 function Navbar() {
 
     const [ShowProfileMenu, setShowProfileMenu] = useState(false);
@@ -38,7 +45,9 @@ function Navbar() {
                         <div className="habergerBar block xl:hidden" onClick={() => setShowSideBar(prev => !prev)}>
                             <FaBars />
                         </div>
+                        <Link href="/">
                         <Logo />
+                        </Link>
 
                         <div className="flex gap-5 max-xl:hidden">
                             <div className="dropdown inline-block relative">
@@ -75,26 +84,48 @@ function Navbar() {
                                     {/* <ChangeThemeBtn /> */}
                                     <Search />
                                 </div>
-                                <div className="basket  w-10 h-10 bg-[rgba(120,120,120,0.33)] rounded-full  justify-center items-center flex">
+                                <div className="basket  w-10 h-10 bg-primary-BG-gr rounded-full  justify-center items-center flex">
                                     <SlBasket />
                                 </div>
 
 
-                                <div className="max-w-40 flex items-center gap-3 " ref={ref} onClick={() => setShowProfileMenu((prev) => !prev)}>
-                                    <div className="profile-icon w-10 h-10  bg-[rgba(120,120,120,0.33)] rounded-full  justify-center items-center flex">
+                                <div className="max-w-50 flex items-center gap-3 " ref={ref} onClick={() => setShowProfileMenu((prev) => !prev)}>
+                                    <div className="profile-icon w-10 h-10   bg-primary-BG-gr rounded-full  justify-center items-center flex">
                                         <FaRegUser />
                                     </div>
                                     <div className="profile-info max-xl:hidden">
                                         <NavProfileInfo />
                                     </div>
+                                    <div className={`${ShowProfileMenu?'rotate-180':''}`}>
+                                    <FaAngleDown />
+                                    </div>
                                 </div>
-                                <div className={`w-60 h-fit absolute ${!ShowProfileMenu ? "hidden" : ""}  top-14 left-[-40px] max-2xl:left-0 border border-primary-BG-gr bg-black`}>
+                                <div className={`w-60 h-fit absolute ${!ShowProfileMenu ? "hidden" : ""}  top-20 backdrop-blur-50 left-[-40px] max-2xl:left-0 border border-primary-BG-gr bg-black p-2 rounded-lg text-sm`}>
                                     <ul className='w-full  '>
-                                        <li><a className="  hover:text-blue-600 py-2 px-4 block whitespace-no-wrap" href="#">زبانهای برنامه نویسی</a></li>
-                                        <li><a className="  hover:text-blue-600 py-2 px-4 block whitespace-no-wrap" href="#">توسعه بازی</a></li>
-                                        <li><a className="  hover:text-blue-600 py-2 px-4 block whitespace-no-wrap" href="#">برنامه نویسی موبایل</a></li>
-                                        <li><a className="  hover:text-blue-600 py-2 px-4 block whitespace-no-wrap" href="#">طراحی دیتابیس</a></li>
-                                        <li><a className="  hover:text-blue-600 py-2 px-4 block whitespace-no-wrap" href="#">تست نویسی</a></li>
+                                        <li><a className="  hover:text-blue-600 py-2 px-4  whitespace-no-wrap flex" href="#"> 
+                                        <span className='text-lg mx-1'><HiOutlineSparkles /></span>
+                                        مشاهده پروفای 
+                                        </a></li>
+                                        <li><a className="  hover:text-blue-600 py-2 px-4  whitespace-no-wrap flex" href="#">
+                                            <span className='text-lg mx-1'>
+                                                <MdOutlineSchool/>
+                                            </span>    
+                                            دوره ها
+                                        </a></li>
+                                        <li><a className="  hover:text-blue-600 py-2 px-4  whitespace-no-wrap flex" href="#">
+                                            <span className='text-lg mx-1'>
+                                                <FaMoneyBills/>
+                                            </span>
+                                            مالی
+                                            </a></li>
+                                        <li><a className="  hover:text-blue-600 py-2 px-4  whitespace-no-wrap flex" href="#">
+                                            <span className='text-lg mx-1'><VscCommentDiscussion/></span>    
+                                            پرسش و دیدگاه
+                                        </a></li>
+                                        <li><a className="  hover:text-red-500 py-2 px-4  whitespace-no-wrap flex" href="#">
+                                            <span className='text-lg mx-1'><PiSignOutBold/></span>
+                                            خروج از حساب
+                                        </a></li>
                                     </ul>
                                 </div>
 

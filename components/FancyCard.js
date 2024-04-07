@@ -9,7 +9,7 @@ import { RiAppsFill } from "react-icons/ri";
 import Poster from '@/public/assets/HldJUMU7RCTrh5sSyjSNrt0MEhmOovM2tToIJnz5.jpg'
 function FancyCard() {
   return (
-    <div className="w-full h-full flex justify-center items-center font-mainFont  relative ">
+    <div className="w-full h-full flex justify-center items-center font-mainFont  relative  mt-3">
       <div className="h-full  w-full  ">
         <div className="image relative  rounded-3xl overflow-auto">
           <Image
