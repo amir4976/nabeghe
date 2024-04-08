@@ -67,7 +67,7 @@ function DushbouardMenu() {
               </li>
           ))}
               <li>
-                  <button className={`w-full h-11 bg-black rounded-full text-right flex items-center px-4 text-sm hover:bg-red-500 transition-all`}>
+                  <button className={`w-full h-11 bg-black rounded-full text-right flex items-center px-4 text-sm hover:bg-red-800 transition-all`}>
                     خروج از حساب کاربری
                   </button> 
               </li>
