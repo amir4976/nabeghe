@@ -4,11 +4,6 @@ import { NextResponse } from "next/server";
 import userModel from '@/models/users'
 import { HashedPassword } from "@/utils/auth";
 import { generateToken } from "@/utils/auth";
-export function GET (req) {
-    ConnectToDB()
-    const user = userModel.find()
-    return NextResponse(user) ;
-}
 
 
 export async function POST (req) {
@@ -23,7 +18,7 @@ export async function POST (req) {
 
     // check if user is exist or not
     const isUserExist = await userModel.findOne({
-        $or: [{ username }, { email }],
+        $or: [{ username }, { email },{phoneNumber}],
     });
     if(isUserExist){
         return NextResponse.json({ message: "This username or email exist already !!" },{ status: 422 });;
