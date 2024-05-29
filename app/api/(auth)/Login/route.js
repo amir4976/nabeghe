@@ -48,7 +48,7 @@ export async function POST(req) {
     {
       status: 200,
       headers: {
-        "Set-Cookie": `token=${token}; HttpOnly; Path=/; Max-Age=7d`,
+        "Set-Cookie": `token=${token};path=/;httpOnly;sameSite=strict;secure;Max-Age=604800`,
       },
     }
   );

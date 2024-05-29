@@ -84,15 +84,15 @@ function NavProfileInfo() {
       >
         <ul className="w-full  ">
           <li>
-            <a
+            <Link
               className="  hover:text-blue-600 py-2 px-4  whitespace-no-wrap flex"
-              href="#"
+              href="/p-user"
             >
               <span className="text-lg mx-1">
                 <HiOutlineSparkles />
               </span>
               مشاهده پروفای
-            </a>
+            </Link>
           </li>
           <li>
             <a
