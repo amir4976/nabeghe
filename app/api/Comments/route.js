@@ -18,7 +18,7 @@ export async function POST(req) {
                 // get data client
                 const { comment, courseId ,email,author} = await req.json();
 
-                if(comment.length<10||comment.trim()||email.trim()||author.trim() ){
+                if(comment.length < 10||!email.trim()||!author.trim() ){
                     return NextResponse.json({ message: "Comment must be at least 10 characters" })
                 }
 
@@ -49,7 +49,8 @@ export async function POST(req) {
                     comment,
                     courseId,
                     author,
-                    email
+                    email,
+                    isAccepted:false,
                 })
                 
                 // update course items

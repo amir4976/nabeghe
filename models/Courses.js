@@ -2,6 +2,10 @@ import mongoose from "mongoose";
 
 
 const CourseSchema = new mongoose.Schema({
+    courseName: { // this is what you use it in your code whene want click on the link
+        type: String,
+        required: true
+    },
     title: {
         type: String,
         required: true
@@ -18,7 +22,7 @@ const CourseSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    caregory:{
+    category:{
         type: String,
         required: true
     },
@@ -51,7 +55,12 @@ const CourseSchema = new mongoose.Schema({
                 ref: 'Enrollment', // Assuming you have a User model
             }
         ]
+    },
+    priceWhithDiscount:{
+        type: Number,
+        default: 0
     }
+
     
     
 })

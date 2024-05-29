@@ -1,7 +1,7 @@
 import { NextResponse, NextRequest } from "next/server";
 import userModel from '@/models/users'
 import ConnectToDB from "@/utils/ConnectToDB";
-import { generateToken } from "@/utils/auth";
+import { VerifyPassword, generateToken } from "@/utils/auth";
 export function GET() {
   return NextResponse.json({ message: "bad request !!" }, { status: 400 });
 }
@@ -14,13 +14,18 @@ export function DELETE() {
 
 export async function POST(req) {
   ConnectToDB();
-  const { identifire } = await req.json();
+  const { identifire,password } = await req.json();
+  console.log(password)
+
+
   if (!identifire.trim()) {
     return NextResponse.json(
       { message: "identifire is required" },
       { status: 422 }
     );
   }
+
+
   const user = await userModel.findOne({
     $or: [{ phoneNumber: identifire }, { email: identifire }],
   });
@@ -29,9 +34,17 @@ export async function POST(req) {
     return NextResponse.json({ message: "user not found" }, { status: 404 });
   }
 
+  const isPasswordIsCorrect = await VerifyPassword(password, user.password);
+  if (!isPasswordIsCorrect) {
+    return NextResponse.json({ message: "password or identifire is not correct" }, { status: 404 });
+  }
+
+
+
+
   const token = await generateToken(user.email);
   return NextResponse.json(
-    { message: "user logedin" },
+    { user },
     {
       status: 200,
       headers: {

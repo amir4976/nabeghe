@@ -1,4 +1,3 @@
-
 import Landing from "@/components/mainPage/models/Landing";
 import Testimonial from "@/components/mainPage/models/Testimonial";
 import WhyUs from "@/components/mainPage/models/WhyUs";

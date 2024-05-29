@@ -5,16 +5,30 @@ import userModel from "@/models/users";
 import commentModel from "@/models/Comments";
 import ConnectToDB from "@/utils/ConnectToDB";
 export async function GET() {
-  const courses = await courseModel.find({});
-  return NextResponse.json({ courses }, { status: 200 });
+  try {
+    ConnectToDB();
+    const courses = await courseModel.find({}).populate("teacher");
+    console.log(courses);
+    return NextResponse.json({ courses }, { status: 200 });
+  
+  } catch (error) {
+    console.log(error);
+    return NextResponse.json(
+      { message: "Something went wrong" },
+      { status: 400 }
+    );
+  }
 }
 
 export async function POST(req) {
   try {
     ConnectToDB();
     // get data client
-    const { title, price, ShortDec, LongDec, caregory, score, image } = await req.json();
-  
+    const { title, price, ShortDec, LongDec, category, score, image,courseName,priceWhithDiscount } = await req.json();
+    if(title.trim() === "" || ShortDec.trim() === "" || category.trim() === "" || image.trim() === "" || courseName.trim() === "" ){
+        return NextResponse.json({message:"all fields are required"});
+    }
+
     // verify token
     const token = req.cookies.get("token")?.value;
     if (!token) {
@@ -28,7 +42,7 @@ export async function POST(req) {
     const tokenpayload = VerifyToken(token);
     if (!tokenpayload) {
       return NextResponse.json(
-        { message: "Please login first" },
+        { message: "  Please login first" },
         { status: 401 }
       );
     }
@@ -53,16 +67,17 @@ export async function POST(req) {
   
     // create course
     const course = await courseModel.create({
+      courseName,
       title,
       price,
       ShortDec,
       LongDec,
-      caregory,
+      category,
       score,
       image,
+      priceWhithDiscount,
       teacher: FindUser._id,
     });
-  
     return NextResponse.json(
       { message: "Course created successfully" },
       { status: 200 }

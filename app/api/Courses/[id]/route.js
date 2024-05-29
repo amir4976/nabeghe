@@ -4,9 +4,8 @@ import ConnectToDB from '@/utils/ConnectToDB'
 
 export async function GET(req,{params}){
     ConnectToDB()
-    console.log(params)
-    const course= await courseModel.find({_id:params.id})
-    return NextResponse.json({course},{status:200})
+    const course = await courseModel.findOne({courseName:params.id}).populate('teacher')
+    return NextResponse.json({ course },{status:200})
 }
 
 

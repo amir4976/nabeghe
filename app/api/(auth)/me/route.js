@@ -8,6 +8,7 @@ export async function POST(req) {
     if(!token){
         return NextResponse.json({ message: "user not found!!!" }, { status: 400 });
     }
+    
     const isTokenVerify = await VerifyToken(token);
     if(!isTokenVerify){
         return NextResponse.json({ message: "user not found!!!" }, { status: 400 });
@@ -20,5 +21,5 @@ export async function POST(req) {
         return NextResponse.json({ message: "user not found!!!" }, { status: 400 });
     }
 
-    return NextResponse.json({ message: user }, { status: 200 });
+    return NextResponse.json({ user }, { status: 200 });
 }

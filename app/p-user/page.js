@@ -1,10 +1,11 @@
 import React from 'react'
-import DashbouardCard from '@/components/Dashbouard/DashbouardCard'
+import DashbouardCard from '@/components/p-user/DashbouardCard'
 import { MdSchool } from "react-icons/md";
-import FancyCard from '@/components/FancyCard';
+// import FancyCard from '@/components/FancyCard';
 import DotedTitle from '@/components/DotedTitle';
 
 function page() {
+  
   return (
     <div>
         <div className=" grid grid-cols-4 gap-4 mt-5">
@@ -17,17 +18,10 @@ function page() {
         <div className="mt-10">
         <DotedTitle title={'دوره های در حال یادگیری'}/>
          <div className=" grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-2 mt-2">
+            {/* <FancyCard/>
             <FancyCard/>
             <FancyCard/>
-            <FancyCard/>
-            <FancyCard/>
-            <FancyCard/>
-            <FancyCard/>
-            <FancyCard/>
-            <FancyCard/>
-            <FancyCard/>
-            <FancyCard/>
-            
+             */}
          </div>
         </div>
     </div>

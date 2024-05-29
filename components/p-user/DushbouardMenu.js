@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-function DushbouardMenu() {
+function DushbouardMenu({name}) {
   const pathname = usePathname()
   const Links = [
     {
@@ -56,7 +56,7 @@ function DushbouardMenu() {
         />
         <div className="flex flex-col justify-center items-start mx-3 ">
           <span className="text-sm text-gray-500">خوش امدید</span>
-          <span className="font-bold">محمد سعیدی راد</span>
+          <span className="font-bold">{name}</span>
         </div>
       </div>
       <div className="list w-full bg-primary-BG-gr rounded-2xl mt-3 p-5">

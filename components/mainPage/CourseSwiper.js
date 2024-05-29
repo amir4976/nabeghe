@@ -15,7 +15,8 @@ import 'swiper/css/free-mode';
 
 
 
-const CourseSwiper= ({ data }) => {
+const CourseSwiper= (data) => {
+  const LastCourses = data.courses.slice(0,5);
   const [SlidePRE,setSlidePRE] = useState(3)  
   useEffect(()=>{
       window.addEventListener('resize',(e)=>{
@@ -50,29 +51,13 @@ const CourseSwiper= ({ data }) => {
         className="mySwiper  h-full w-full "
       >
         {/* for each make one of this later */}
-        <SwiperSlide>
-          <div className="w-[350px] max-sm:w-[400px]">
-         <FancyCard/>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="w-[350px] max-sm:w-[400px]">
-         <FancyCard/>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="w-[350px] max-sm:w-[400px]">
-         <FancyCard/>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="w-[350px] max-sm:w-[400px]">
-         <FancyCard/>
-          </div>
-        </SwiperSlide>
-       
-
-       
+        {LastCourses.map((course,index)=>(
+                 <SwiperSlide key={index}>
+                   <div className="w-[350px] max-sm:w-[400px]">
+                       <FancyCard {...course} />
+                   </div>
+                </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );

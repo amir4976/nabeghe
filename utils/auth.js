@@ -5,6 +5,10 @@ import { sign, verify } from "jsonwebtoken";
  function HashedPassword (password) {
     return bcrypt.hashSync(password, 10);
 }
+ 
+ function VerifyPassword (password,hashedPassword) {
+    return bcrypt.compareSync(password, hashedPassword);
+}
 
  function generateToken (email){
     return sign({ email }, process.env.JWT_SECRET_KEY, { expiresIn: "1d" });
@@ -21,4 +25,4 @@ import { sign, verify } from "jsonwebtoken";
 } 
 
 
-export { HashedPassword, generateToken, VerifyToken };
+export { HashedPassword, generateToken, VerifyToken,VerifyPassword };
