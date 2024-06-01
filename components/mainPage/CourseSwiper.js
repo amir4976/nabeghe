@@ -22,14 +22,11 @@ const CourseSwiper= (data) => {
       window.addEventListener('resize',(e)=>{
         if(e.target.innerWidth < 1100){
           setSlidePRE(2)
-          console.log(e.target.innerWidth);
         }
         if(e.target.innerWidth < 660){
-          console.log('object')
           setSlidePRE(1)
         }
         if(e.target.innerWidth > 1100){
-          console.log('object')
           setSlidePRE(3)
         }
       })

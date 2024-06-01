@@ -5,6 +5,23 @@ import DotedTitle from '../DotedTitle'
 import Logo from '../mainPage/Logo'
 
 function Signin({login}) {
+    
+  const [name, setName] = React.useState('')
+  const [username, setUserName] = React.useState('')
+  const [email, setEmail] = React.useState('')
+  const [Password, setPassword] = React.useState('')
+  const [phone, setPhone] = React.useState('')
+
+  const SignInUser =()=>{
+    const data = {
+      name,
+      username,
+      email,
+      Password,
+      phone
+    }
+    console.log(data)
+  }
  
   return (
     <>
@@ -26,60 +43,61 @@ function Signin({login}) {
 {/* ---------------------- input --------------------------------- */}
     
     {/* Name */}
-    <div className="input w-full h-fit border border-gray-800 rounded-xl mb-3">
+    <div  className="input w-full h-fit border border-gray-800 rounded-xl mb-3">
     <input
       type="text"
       className=" ltr w-full h-12 bg-primary-BG-gr rounded-2xl outline-none px-2 "
       placeholder="نام"
-    //   onChange={(e) => setIdentifie(e.target.value)}
-    //   value={identifire}
+      onChange={(e) => setName(e.target.value)}
+      value={name}
     />
     </div>
 
-    {/* Name */}
-    <div className="input w-full h-fit border border-gray-800 rounded-xl mb-3">
+
+    {/* UserName */}
+    <div  className="input w-full h-fit border border-gray-800 rounded-xl mb-3">
     <input
       type="text"
       className=" ltr w-full h-12 bg-primary-BG-gr rounded-2xl outline-none px-2 "
       placeholder=" نام کاربری"
-    //   onChange={(e) => setIdentifie(e.target.value)}
-    //   value={identifire}
+      onChange={(e) => setUserName(e.target.value)}
+      value={username}
     />
     </div>
 
     {/* email */}
-    <div className="input w-full h-fit border border-gray-800 rounded-xl mb-3">
+    <div  className="input w-full h-fit border border-gray-800 rounded-xl mb-3">
     <input
-      type="text"
+      type="email"
       className=" ltr w-full h-12 bg-primary-BG-gr rounded-2xl outline-none px-2 "
       placeholder="ایمیل"
-    //   onChange={(e) => setIdentifie(e.target.value)}
-    //   value={identifire}
+      onChange={(e) => setEmail(e.target.value)}
+      value={email}
     />
     </div>
 
     {/* password */}
-    <div className="input w-full h-fit border border-gray-800 rounded-xl mb-3">
+    <div  className="input w-full h-fit border border-gray-800 rounded-xl mb-3">
 
     <input
-      type="text"
+      type="Password"
       className=" ltr w-full h-12 bg-primary-BG-gr rounded-2xl outline-none px-2 "
       placeholder="رمز ورود"
-    //   onChange={(e) => setIdentifie(e.target.value)}
-    //   value={identifire}
+      onChange={(e) => setPassword(e.target.value)}
+      value={Password}
     />
 
     </div>
 
     {/* phone */}
-    <div className="input w-full h-fit border border-gray-800 rounded-xl mb-3">
+    <div  className="input w-full h-fit border border-gray-800 rounded-xl mb-3">
 
     <input
-      type="text"
+      type="number"
       className=" ltr w-full h-12 bg-primary-BG-gr rounded-2xl outline-none px-2 "
       placeholder="شماره تلفن"
-    //   onChange={(e) => setIdentifie(e.target.value)}
-    //   value={identifire}
+      onChange={(e) => setPhone(e.target.value)}
+      value={phone}
     />
 
     </div>
@@ -88,7 +106,7 @@ function Signin({login}) {
 
 
 
-    <button className="flex  justify-center items-center w-full h-12 bg-primary-color rounded-full text-light mt-3">
+    <button className="flex  justify-center items-center w-full h-12 bg-primary-color rounded-full text-light mt-3" onClick={()=>SignInUser()}>
       <span> برو بریم</span>
       <span>
         <FiArrowUpLeft />

@@ -9,12 +9,12 @@ function DushbouardMenu({name}) {
   const Links = [
     {
       title: "پیشخوان",
-      href: "/Dashbouard",
+      href: "/p-user",
       icon: "info",
     },
     {
       title: "دوره ها",
-      href: "/",
+      href: "/p-user/Enrolledcourses",
       icon: "info",
     },
     {

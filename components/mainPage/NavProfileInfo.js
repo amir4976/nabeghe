@@ -42,10 +42,10 @@ function NavProfileInfo() {
       }
     };
 
-    window.addEventListener("mousedown", handleOutSideClick);
+    window.addEventListener("mouseup", handleOutSideClick);
 
     return () => {
-      window.removeEventListener("mousedown", handleOutSideClick);
+      window.removeEventListener("mouseup", handleOutSideClick);
     };
   }, [ref]);
 
@@ -80,7 +80,7 @@ function NavProfileInfo() {
       <div
         className={`w-60 h-fit absolute ${
           !ShowProfileMenu ? "hidden" : ""
-        }  top-20 backdrop-blur-50 left-[-40px] max-2xl:left-0 border border-primary-BG-gr bg-black p-2 rounded-lg text-sm`}
+        }  top-20 backdrop-blur-100 left-[-40px] max-2xl:left-0 border border-primary-BG-gr bg-black  p-2 rounded-lg text-sm`}
       >
         <ul className="w-full  ">
           <li>

@@ -11,7 +11,6 @@ import Link from "next/link";
 function FancyCard(course) {
   const { title, price, ShortDec, LongDec, category, score, image ,teacher,courseName} = course;
    
-  console.log(teacher)
   return (
     <div className="w-full h-full flex justify-center items-center font-mainFont  relative  mt-3">
       <div className="h-full  w-full  ">

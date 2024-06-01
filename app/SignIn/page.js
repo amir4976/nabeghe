@@ -12,7 +12,7 @@ function Page() {
   const login = ()=>setAuthType(authTypes.LOGIN)
 
   return (
-    <div className="w-full h-screen overflow-hidden flex justify-center items-center bg-black font-mainFont flex-col">
+    <div className="w-full h-screen mt-[-80px] overflow-hidden flex justify-center items-center bg-black font-mainFont flex-col">
       {/* <SignInCard /> */}
       {
         AuthType==authTypes.REGESTER ? (

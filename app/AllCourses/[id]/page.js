@@ -12,6 +12,7 @@ import MiniBarLeftSide from "@/components/coursePage/MiniBar";
 import { redirect } from "next/navigation";
 import HtmlToJSX from "@/components/HtmlToJSX";
 import CourseCard from "@/components/CourseCard";
+import { authUser } from "@/utils/authUser";
 
 
 async function page({params}) {
@@ -25,9 +26,8 @@ async function page({params}) {
 
 
   const getMe = async()=>{
-    const User =await fetch('http://localhost:3000/api/me',{method:'POST'})
-    const UserTest = await User.json()
-    console.log(UserTest)
+    const userAuth = await authUser()
+    console.log(userAuth)
   }
   getMe()
   if(!courseInfo){

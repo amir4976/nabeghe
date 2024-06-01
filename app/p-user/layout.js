@@ -12,7 +12,7 @@ async function layout({children}) {
 
  const user = await authUser()
  if (!user) {
-  redirect('/Signup')
+  redirect('/SignIn')
  }
  console.log(user)
 
