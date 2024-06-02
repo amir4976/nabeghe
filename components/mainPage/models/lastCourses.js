@@ -3,8 +3,10 @@ import MainPageTitle from "../MainPageTitle";
 import { MdSchool } from "react-icons/md";
 import CourseSwiper from "../CourseSwiper";
 import HatLogo from "@/components/HatLogo";
-function LastCourses() {
+import courseModule from "@/models/Courses"
+async function LastCourses({data}) {
   // get last courses from api here and send it to course swiper
+
   return (
     <div>
       <MainPageTitle
@@ -12,7 +14,7 @@ function LastCourses() {
         desc={"منتشر شده در سال های اخیر"}
         icon={<HatLogo/>}
       />
-      <CourseSwiper/>
+      <CourseSwiper data={data}/>
     </div>
   );
 }

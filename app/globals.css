@@ -161,3 +161,20 @@ color: var(--foreground); */
  .activeLinkCourePage{
   background-color: #000;
  }
+
+
+
+ /* Draver-tranisation */
+ .Draver-tranisation{
+  animation: Inter 1s ;
+  position: relative;
+ }
+ @keyframes Inter {
+  from{
+    bottom:  -100px;
+    opacity: 0;
+  }to{
+    bottom:  0;
+    opacity: 1;
+  }
+ }

@@ -4,11 +4,6 @@ import { NextResponse } from "next/server";
 import userModel from '@/models/users'
 import { HashedPassword } from "@/utils/auth";
 import { generateToken } from "@/utils/auth";
-export function GET (req) {
-    ConnectToDB()
-    const user = userModel.find()
-    return NextResponse(user) ;
-}
 
 
 export async function POST (req) {
@@ -16,14 +11,14 @@ export async function POST (req) {
     ConnectToDB()
    
     // get and check data from client
-    const {name,username,email,password,phoneNumber,role} = await req.json();
-    if(name.trim() === "" || !username || email.trim() === "" || password.trim() === "" || phoneNumber.trim() === "" || role.trim() === ""){
+    const {name,username,email,password,phoneNumber} = await req.json();
+    if(name.trim() === "" || !username || email.trim() === "" || password.trim() === "" || phoneNumber.trim() === "" ){
         return NextResponse.json({message:"all fields are required"});
     }
 
     // check if user is exist or not
     const isUserExist = await userModel.findOne({
-        $or: [{ username }, { email }],
+        $or: [{ username }, { email },{phoneNumber}],
     });
     if(isUserExist){
         return NextResponse.json({ message: "This username or email exist already !!" },{ status: 422 });;

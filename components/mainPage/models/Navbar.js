@@ -2,40 +2,27 @@
 import React, { useEffect,useState } from 'react'
 import Search from '../NavBtns/Search';
 import { SlBasket } from "react-icons/sl";
-import { FaRegUser } from "react-icons/fa6";
 import NavProfileInfo from '../NavProfileInfo';
 import { FaBars } from "react-icons/fa";
 import Logo from '../Logo';
 import { FiSearch } from "react-icons/fi";
-import { useRef } from 'react';
 import Link from 'next/link';
-import { FaAngleDown } from "react-icons/fa";
 
-import { HiOutlineSparkles } from "react-icons/hi2";
-import { MdOutlineSchool } from "react-icons/md";
-import { FaMoneyBills } from "react-icons/fa6";
-import { VscCommentDiscussion } from "react-icons/vsc";
-import { PiSignOutBold } from "react-icons/pi";
-function Navbar() {
-
-    const [ShowProfileMenu, setShowProfileMenu] = useState(false);
+ function Navbar() {
     const [ShowSideBar, setShowSideBar] = useState(false);
-    const ref = useRef(null);
-    // click out side componnet
+    const [AllCourses,setAllCourses] = useState([]);
     useEffect(() => {
-      const handleOutSideClick = (event) => {
-        if (!ref.current?.contains(event.target)) {
-          console.log("Outside Clicked. ");
-          setShowProfileMenu(false)
+        const GetCourseData =async ()=>{
+            const request = await fetch("/api/Courses")
+            let {courses} = await request.json()
+            console.log(courses)
+            setAllCourses(courses)
+            
         }
-      };
-  
-      window.addEventListener("mousedown", handleOutSideClick);
-  
-      return () => {
-        window.removeEventListener("mousedown", handleOutSideClick);
-      };
-    }, [ref]);
+        GetCourseData();
+        
+    }, []);
+
 
     return (
         <>
@@ -57,22 +44,35 @@ function Navbar() {
                                 </button>
                                 <ul className={`dropdown-menu w-[250px] absolute border border-gray-600 rounded-md  text-light pt-0 z-10 font-mainFont bg-black`}>
                                     <li>
-                                        <a className=" dropSub rounded-t hover:text-blue-600 py-2 px-4 block whitespace-no-wrap" href="#">برنامه نویسی وب</a>
-                                        <ul className={`dropdown-submenu w-96 absolute border-gray-600 rounded-md   pt-0  border border-gray-300 flex-wrap`} >
-                                            <li><a className=" hover:text-blue-600 py-2 px-4 block bg-black" href="#">Two</a></li>
-
+                                        <a className=" dropSub rounded-t hover:text-blue-600 py-2 px-4 block whitespace-no-wrap" href="#">برنامه نویسی فرانت</a>
+                                        <ul className={`dropdown-submenu w-96 absolute  rounded-md   pt-0  border border-gray-500 flex-wrap`} >
+                                            {AllCourses.map((e,index)=>{
+                                                if(e.category === "فرانت اند"){
+                                                    return(
+                                                        <li key={index}><Link className=" hover:text-blue-600 py-2 px-4 block bg-black" href={`/AllCourses/${e.courseName}`}>{e.title}</Link></li>
+                                                    )
+                                                }
+                                            })}
                                         </ul>
                                     </li>
-                                    <li><a className=" hover:text-blue-600 py-2 px-4 block whitespace-no-wrap" href="#">دیتا ساینس</a></li>
-                                    <li><a className="  hover:text-blue-600 py-2 px-4 block whitespace-no-wrap" href="#">زبانهای برنامه نویسی</a></li>
-                                    <li><a className="  hover:text-blue-600 py-2 px-4 block whitespace-no-wrap" href="#">توسعه بازی</a></li>
-                                    <li><a className="  hover:text-blue-600 py-2 px-4 block whitespace-no-wrap" href="#">برنامه نویسی موبایل</a></li>
-                                    <li><a className="  hover:text-blue-600 py-2 px-4 block whitespace-no-wrap" href="#">طراحی دیتابیس</a></li>
-                                    <li><a className="  hover:text-blue-600 py-2 px-4 block whitespace-no-wrap" href="#">تست نویسی</a></li>
+                                    <li>
+                                        <a className=" dropSub rounded-t hover:text-blue-600 py-2 px-4 block whitespace-no-wrap" href="#">برنامه نویسی بک</a>
+                                        <ul className={`dropdown-submenu w-96 absolute  rounded-md   pt-0  border border-gray-300 flex-wrap`} >
+                                        {AllCourses.map((e,index)=>{
+                                                if(e.category === "بک اند"){
+                                                    return(
+                                                        <li key={index}><Link className=" hover:text-blue-600 py-2 px-4 block bg-black" href={`/AllCourses/${e.courseName}`}>{e.title}</Link></li>
+                                                    )
+                                                }
+                                            })}
+                                        </ul>
+                                    </li>
+
+
                                 </ul>
                             </div>
                             <ul className='flex items-center justify-between gap-10 font-mainFont '>
-                                <li className='text-gray-500 hover:text-white'>پرسش و پاسخ</li>
+                                <li className='text-gray-500 hover:text-white'><Link href={'/commenQuestions'}>پرسش و پاسخ</Link></li>
                                 <li className='text-gray-500 hover:text-white'>مقالات</li>
                             </ul>
                         </div>
@@ -84,49 +84,10 @@ function Navbar() {
                                     {/* <ChangeThemeBtn /> */}
                                     <Search />
                                 </div>
-                                <div className="basket  w-10 h-10 bg-primary-BG-gr rounded-full  justify-center items-center flex">
-                                    <SlBasket />
-                                </div>
+                            
 
-
-                                <div className="max-w-50 flex items-center gap-3 " ref={ref} onClick={() => setShowProfileMenu((prev) => !prev)}>
-                                    <div className="profile-icon w-10 h-10   bg-primary-BG-gr rounded-full  justify-center items-center flex">
-                                        <FaRegUser />
-                                    </div>
-                                    <div className="profile-info max-xl:hidden">
-                                        <NavProfileInfo />
-                                    </div>
-                                    <div className={`${ShowProfileMenu?'rotate-180':''}`}>
-                                    <FaAngleDown />
-                                    </div>
-                                </div>
-                                <div className={`w-60 h-fit absolute ${!ShowProfileMenu ? "hidden" : ""}  top-20 backdrop-blur-50 left-[-40px] max-2xl:left-0 border border-primary-BG-gr bg-black p-2 rounded-lg text-sm`}>
-                                    <ul className='w-full  '>
-                                        <li><a className="  hover:text-blue-600 py-2 px-4  whitespace-no-wrap flex" href="#"> 
-                                        <span className='text-lg mx-1'><HiOutlineSparkles /></span>
-                                        مشاهده پروفای 
-                                        </a></li>
-                                        <li><a className="  hover:text-blue-600 py-2 px-4  whitespace-no-wrap flex" href="#">
-                                            <span className='text-lg mx-1'>
-                                                <MdOutlineSchool/>
-                                            </span>    
-                                            دوره ها
-                                        </a></li>
-                                        <li><a className="  hover:text-blue-600 py-2 px-4  whitespace-no-wrap flex" href="#">
-                                            <span className='text-lg mx-1'>
-                                                <FaMoneyBills/>
-                                            </span>
-                                            مالی
-                                            </a></li>
-                                        <li><a className="  hover:text-blue-600 py-2 px-4  whitespace-no-wrap flex" href="#">
-                                            <span className='text-lg mx-1'><VscCommentDiscussion/></span>    
-                                            پرسش و دیدگاه
-                                        </a></li>
-                                        <li><a className="  hover:text-red-500 py-2 px-4  whitespace-no-wrap flex" href="#">
-                                            <span className='text-lg mx-1'><PiSignOutBold/></span>
-                                            خروج از حساب
-                                        </a></li>
-                                    </ul>
+                                <div className="profile-info max-xl:hidden flex justify-center items-center gap-3">
+                                        <NavProfileInfo /> 
                                 </div>
 
                             </div>

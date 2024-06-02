@@ -3,7 +3,7 @@ import DotedTitle from "@/components/DotedTitle";
 import { FaHeart } from "react-icons/fa6";
 import { GoArrowUpLeft } from "react-icons/go";
 import Image from "next/image";
-function MiniBar() {
+function MiniBar(data) {
   return (
     <div className="flex w-4/12 max-md:w-full sticky top-24 rounded-3xl flex-col">
       <div className="bg-gradient-to-b from-primary-BG-gr to-secondary-BG-gr w-full sticky px-5 justify-center flex-col rounded-3xl">
@@ -18,15 +18,15 @@ function MiniBar() {
 
           <div className="price">
             <div className="offer flex justify-end">
-              <span className="text-sm text-gray-500 line-through ">
-                {(1079000).toLocaleString()}
+              <span className={`${ !data.priceWhithDiscount? "hidden" : "" } text-sm text-gray-500 line-through `}>
+                {data.priceWhithDiscount ? (100).toLocaleString() : ""}
               </span>
             </div>
 
             <span className="text-lg font-bold">
-              {(1079000).toLocaleString()}
+              {data.price > 100 ? (data.price).toLocaleString() :(<span className="text-2xl text-yellow-600">رایگان</span>)}
             </span>
-            <span className=" text-sm text-gray-600 px-1">تومان</span>
+            <span className={` ${data.price < 100 ? 'hidden' : ""} text-sm text-gray-600 px-1`}>تومان</span>
           </div>
         </div>
         <div className="flex w-full">
@@ -49,7 +49,7 @@ function MiniBar() {
             <Image fill alt="profile" src={"/assets/01.jpeg"} />
           </div>
           <div className="teacher-profile-info flex flex-col justify-center text-sm mx-2">
-              <span className="font-bold ">محمد سعیدی راد</span>
+              <span className="font-bold ">{data.teacher.name}</span>
               <span  className="text-primary-color">دیدن رزومه</span>
           </div>
         </div>
