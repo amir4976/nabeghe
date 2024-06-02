@@ -1,16 +1,14 @@
-import React from "react";
 import HatLogo from "@/components/HatLogo";
 import FancyCard from "@/components/FancyCard";
 import Footer from "@/components/Footer";
 import FilterSide from "@/components/allCourse/FilterSide";
 import AllCoursesSort from "@/components/allCourse/AllCoursesSort";
+import CourseModule from "@/models/Courses";
+import ConnectToDB from "@/utils/ConnectToDB";
 
-async function page() {
-  const res = await fetch('http://localhost:3000/api/Courses')
-  const result = await res.json()
-  const courses = result.courses ? result.courses : []
-
-
+async function page() { 
+  ConnectToDB();
+  const res =await CourseModule.find({}).populate("teacher")
   return (
     <div className="max-w-7xl mx-auto p-4 font-mainFont">
       <div className="page-title flex w-full  ">
@@ -33,9 +31,9 @@ async function page() {
 
 
           <div className="courses grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-2">
-            {courses.map((course) => (
+            {res.map((course) => (
               <div className="mb-5" key={course._id} >
-                <FancyCard key={course.id} {...course} />
+                <FancyCard key={course.id} data={JSON.parse(JSON.stringify(course))} />
               </div>
             ))}
           </div>
@@ -46,6 +44,7 @@ async function page() {
         <Footer />
       </div>
     </div>
+
   );
 }
 

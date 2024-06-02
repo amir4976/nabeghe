@@ -1,12 +1,16 @@
 import EnrolledCourses from '@/components/p-user/EnrolledCourses'
 import React from 'react'
+import EnrollmentModel from '@/models/Enrollment';
+import { authUser } from '@/utils/authUser';
+async function page () {
+  const AuthUser = await authUser()
+  console.log(JSON.parse(JSON.stringify(AuthUser)))
+  const enrolls = await EnrollmentModel.find({studentId: AuthUser.id}).populate('courseId')
+  console.log(enrolls)
 
-async function  page () {
-  const request = await fetch(`http://localhost:3000/api/Enrollment/661c20e1ff63d6957d786f17`);
-  const enrolls = await request.json()
   return (
     <div>
-      <EnrolledCourses title={'دوره های شما'} enrolls={enrolls} />
+      <EnrolledCourses title={'دوره های شما'} enrolls={JSON.parse(JSON.stringify(enrolls))} />
     </div>
   )
 }

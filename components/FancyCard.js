@@ -1,5 +1,3 @@
-"use client";
-import React from "react";
 import Image from "next/image";
 import { MdFileCopy } from "react-icons/md";
 import { MdOutlineAccessTimeFilled } from "react-icons/md";
@@ -8,9 +6,9 @@ import { FaHeart } from "react-icons/fa";
 import { RiAppsFill } from "react-icons/ri";
 import Link from "next/link";
 
-function FancyCard(course) {
-  const { title, price, ShortDec, LongDec, category, score, image ,teacher,courseName} = course;
-   
+function FancyCard({data}) {
+  console.log(data)
+  const { title, price, ShortDec, LongDec, category, score, image ,teacher,courseName} = data;
   return (
     <div className="w-full h-full flex justify-center items-center font-mainFont  relative  mt-3">
       <div className="h-full  w-full  ">
@@ -25,7 +23,6 @@ function FancyCard(course) {
           <div className="courseType absolute z-10 left-4 top-4 flex bg-black/20 px-2 py-1 rounded-lg text-white items-center  ">
           <RiAppsFill />
             <span className="mr-2">{category}</span>
-            
           </div>
         </Link>
         <div className="fancy-infoSide px-5">
@@ -45,6 +42,9 @@ function FancyCard(course) {
           </div>
           <div className="profile-Price mt-4 flex items-center justify-between" >
             <div className="profile flex">
+              {
+              teacher.name && (
+             <>
               <div className="profile-img relative w-10 h-10 rounded-full overflow-auto ">
                 <Image fill alt="profile" src={"/assets/01.jpeg"} />
               </div>
@@ -52,6 +52,9 @@ function FancyCard(course) {
                 <span className="text-gray-500  text-xs">مدرس دوره</span>
                 <span className="font-bold text-xs">{teacher.name}</span>
               </div>
+              </>
+              )    
+              }
             </div>
             <div className="price flex flex-col items-end">
                 <span className="text-sm mr-1 text-gray-500">تومان</span>

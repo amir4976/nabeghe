@@ -8,11 +8,9 @@ export async function GET() {
   try {
     ConnectToDB();
     const courses = await courseModel.find({}).populate("teacher");
-    console.log(courses);
     return NextResponse.json({ courses }, { status: 200 });
   
   } catch (error) {
-    console.log(error);
     return NextResponse.json(
       { message: "Something went wrong" },
       { status: 400 }

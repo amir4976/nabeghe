@@ -18,7 +18,7 @@ const mdxComponents = {
           {alt && <figcaption>{alt}</figcaption>}
         </figure>
       );
-    };
+    }
 };
 
 const MDXContent = ({ code }) => {

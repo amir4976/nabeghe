@@ -95,15 +95,15 @@ function NavProfileInfo() {
             </Link>
           </li>
           <li>
-            <a
+            <Link
               className="  hover:text-blue-600 py-2 px-4  whitespace-no-wrap flex"
-              href="#"
+              href="/p-user/Enrolledcourses"
             >
               <span className="text-lg mx-1">
                 <MdOutlineSchool />
               </span>
               دوره ها
-            </a>
+            </Link>
           </li>
           <li>
             <a
