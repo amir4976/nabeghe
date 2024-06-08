@@ -9,9 +9,9 @@ import Image from "next/image";
 import { ShowSwal } from "@/utils/ShowSwal";
 function MiniBar(data) {
   const AddToFavorites = async () => {
-
+      // geting course id 
     const courseId = data.id
-    console.log(courseId)
+    // add to favorites 
     const GetData = await fetch("/api/Favorites",{
       method:"POST",
       headers:{
@@ -23,7 +23,7 @@ function MiniBar(data) {
       
     })
     const response =await GetData.json()
-    
+    // show swal for every statuse
     if(GetData.status == 200){
       ShowSwal({title:"added to favorites",icon:"success",text:"successfully added to favorites!!! 😀😁"})
     }
