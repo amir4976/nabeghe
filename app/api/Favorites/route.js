@@ -4,10 +4,16 @@ import CourseModel from "@/models/Courses";
 import { NextResponse } from "next/server";
 import ConnectToDB from "@/utils/ConnectToDB";
 
-// export async function GET ({params}){
-//     const Response = await FavoritesModel.find({userID:params.id})
-//     return Response.json(Response)
-// }
+export async function GET() {
+    try {
+        await ConnectToDB(); // Ensure the database connection is established
+        const getAllFavorites = await FavoritesModel.find({}).populate('courseID'); // Populate courseID
+        return NextResponse.json({ getAllFavorites }, { status: 200 });
+    } catch (error) {
+        console.error('Error fetching favorites:', error);
+        return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+    }
+}
 
 export async function POST (req){
     ConnectToDB()
@@ -33,7 +39,7 @@ export async function POST (req){
     // check if user already added this course to favorites
     const isCourseAlreadyAddedToFavorites = await FavoritesModel.findOne({userID:AuthUser.id,courseID:courseID})
     if (isCourseAlreadyAddedToFavorites){
-        return NextResponse.json({'massage':"you already added this course to favorites"},{status:400})
+        return NextResponse.json({'massage':"you already added this course to favorites"},{status:500})
     }
 
 

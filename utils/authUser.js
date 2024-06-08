@@ -1,5 +1,5 @@
 import ConnectToDB from "./ConnectToDB";
-import userModel from "@/models/users"
+import userModel from "@/models/Users"
 import { VerifyToken } from "./auth";
 import { cookies } from "next/headers";
 

@@ -19,7 +19,7 @@ function DushbouardMenu({name}) {
     },
     {
       title: "علاقه مندی ها",
-      href: "/",
+      href: "/p-user/Favorites",
       icon: "info",
     },
     {

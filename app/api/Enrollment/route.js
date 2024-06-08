@@ -1,6 +1,6 @@
 import ConnectToDB from "@/utils/ConnectToDB"
 import enrollmentModel from "@/models/Enrollment";
-import userModel from "@/models/users";
+import userModel from "@/models/Users";
 import courseModel from "@/models/Courses";
 import { NextResponse } from "next/server";
 

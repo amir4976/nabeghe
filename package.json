@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@next/font": "^14.1.4",
+    "@sweetalert2/themes": "^5.0.16",
     "aws4": "^1.12.0",
     "bcrypt": "^5.1.1",
     "cookie": "^0.6.0",
@@ -24,6 +25,8 @@
     "react-element-to-jsx-string": "^15.0.0",
     "react-icons": "^5.0.1",
     "sanitize-html": "^2.13.0",
+    "sass": "^1.77.4",
+    "scss": "^0.2.4",
     "swal": "^0.1.0",
     "sweetalert2": "^11.11.0",
     "swiper": "^11.1.0",

@@ -3,7 +3,7 @@ import React from 'react'
 import DushbouardMenu from '@/components/p-user/DushbouardMenu'
 import ConnectToDB from '@/utils/ConnectToDB'
 import { VerifyToken } from '@/utils/auth'
-import userModel from '@/models/users'
+import userModel from '@/models/Users'
 import { redirect } from 'next/navigation'
 import { cookies } from 'next/headers'
 import { authUser } from '@/utils/authUser'
@@ -14,7 +14,7 @@ async function layout({children}) {
  if (!user) {
   redirect('/SignIn')
  }
- console.log(user)
+//  console.log(user)
 
   return (
     <>

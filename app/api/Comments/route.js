@@ -2,7 +2,7 @@ import { NextRequest } from "next/server"
 import { NextResponse } from "next/server"
 import { VerifyToken } from "@/utils/auth";
 import commentModel from "@/models/Comments";
-import userModel from '@/models/users'
+import userModel from '@/models/Users'
 import ConnectToDB from "@/utils/ConnectToDB";
 import courseModel from '@/models/Courses'
 export async function GET() {

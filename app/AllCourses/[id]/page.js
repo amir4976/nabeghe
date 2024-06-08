@@ -24,7 +24,7 @@ async function page({params}) {
   const course =await fetch(`http://localhost:3000/api/Courses/${params.id}`)
   const result = await course.json()
   const courseInfo = result.course
-
+  
 
 
     const userAuth = await authUser()
@@ -169,7 +169,7 @@ async function page({params}) {
 
       {/* ---------------------------------------------------------------------------------------------------- */}
       {/* mini bar left side */}
-        <MiniBarLeftSide priceWhithDiscount={courseInfo.priceWhithDiscount} price={courseInfo.price} teacher={courseInfo.teacher} enrolls={courseInfo.enrolls}/>
+        <MiniBarLeftSide priceWhithDiscount={courseInfo.priceWhithDiscount} price={courseInfo.price} teacher={courseInfo.teacher} enrolls={courseInfo.enrolls} id={courseInfo._id} />
 
 
 

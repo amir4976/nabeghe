@@ -1,5 +1,5 @@
 import { NextResponse, NextRequest } from "next/server";
-import userModel from '@/models/users'
+import userModel from '@/models/Users'
 import ConnectToDB from "@/utils/ConnectToDB";
 import { VerifyPassword, generateToken } from "@/utils/auth";
 export function GET() {
