@@ -8,7 +8,7 @@ import Logo from '../Logo';
 import { FiSearch } from "react-icons/fi";
 import Link from 'next/link';
 
- function Navbar() {
+ function Navbar({isLogin}) {
     const [ShowSideBar, setShowSideBar] = useState(false);
     const [AllCourses,setAllCourses] = useState([]);
     useEffect(() => {
@@ -22,7 +22,7 @@ import Link from 'next/link';
         GetCourseData();
         
     }, []);
-
+    
 
     return (
         <>

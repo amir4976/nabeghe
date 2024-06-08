@@ -2,7 +2,7 @@
 import mongoose from "mongoose";
 
 
-const LongDecSchema = mongoose.Schema({
+const LongDecSchema =new mongoose.Schema({
     title: {
         type: String,
         required: true

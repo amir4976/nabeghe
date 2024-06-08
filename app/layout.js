@@ -42,7 +42,6 @@ export default function RootLayout({ children }) {
     <html lang="en" data-theme='drak' suppressHydrationWarning={true}>
       <body className={`${inter.className} ${yekanbakh.variable} `}>
         <AuthProvider>
-        <Navbar/>
         {children}
         </AuthProvider>
         </body>

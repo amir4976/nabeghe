@@ -16,7 +16,6 @@ import 'swiper/css/free-mode';
 
 
 const CourseSwiper= ({data}) => {
-  console.log(data)
   const LastCourses = data.slice(0,5);
   const [SlidePRE,setSlidePRE] = useState(3)  
   useEffect(()=>{

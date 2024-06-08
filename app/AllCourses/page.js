@@ -5,11 +5,13 @@ import FilterSide from "@/components/allCourse/FilterSide";
 import AllCoursesSort from "@/components/allCourse/AllCoursesSort";
 import CourseModule from "@/models/Courses";
 import ConnectToDB from "@/utils/ConnectToDB";
-
+import Navbar from "@/components/mainPage/models/Navbar";
 async function page() { 
   ConnectToDB();
   const res =await CourseModule.find({}).populate("teacher")
   return (
+    <>
+    <Navbar isLogin={true} />
     <div className="max-w-7xl mx-auto p-4 font-mainFont">
       <div className="page-title flex w-full  ">
         <HatLogo />
@@ -44,6 +46,7 @@ async function page() {
         <Footer />
       </div>
     </div>
+    </>
 
   );
 }

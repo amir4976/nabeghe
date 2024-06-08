@@ -27,7 +27,7 @@ const CourseSchema = new mongoose.Schema({
         required: true
     },
     teacher:{
-        type: mongoose.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'User', // Assuming you have a User model
         required: true
     },
@@ -42,7 +42,7 @@ const CourseSchema = new mongoose.Schema({
     comments:{
         type: [
             {
-                type: mongoose.Types.ObjectId,
+                type: mongoose.Schema.Types.ObjectId,
                 ref: 'Comment', // Assuming you have a Comment model
             }
         ]
@@ -51,7 +51,7 @@ const CourseSchema = new mongoose.Schema({
     enrolls:{
         type: [
             {
-                type: mongoose.Types.ObjectId,
+                type: mongoose.Schema.Types.ObjectId,
                 ref: 'Enrollment', // Assuming you have a User model
             }
         ]
@@ -65,4 +65,5 @@ const CourseSchema = new mongoose.Schema({
     
 })
 
-export default mongoose.models.Course || mongoose.model('Course', CourseSchema)
+const Exportmodule = mongoose.models.Course || mongoose.model('Course', CourseSchema)
+export default Exportmodule;

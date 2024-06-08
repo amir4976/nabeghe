@@ -7,7 +7,7 @@ import userModel from '@/models/users'
 import { redirect } from 'next/navigation'
 import { cookies } from 'next/headers'
 import { authUser } from '@/utils/authUser'
-
+import Navbar from '@/components/mainPage/models/Navbar'
 async function layout({children}) {
 
  const user = await authUser()
@@ -17,6 +17,8 @@ async function layout({children}) {
  console.log(user)
 
   return (
+    <>
+    <Navbar isLogin={true}/>
     <div className='flex justify-center w-full max-xl:px-3 font-mainFont'> 
     <div className="max-w-7xl">
 
@@ -33,6 +35,7 @@ async function layout({children}) {
       <Footer/>
     </div>
     </div>
+    </>
   )
 }
 
