@@ -13,6 +13,7 @@ import { redirect } from "next/navigation";
 import HtmlToJSX from "@/components/HtmlToJSX";
 import CourseCard from "@/components/CourseCard";
 import { authUser } from "@/utils/authUser";
+import Navbar from "@/components/mainPage/models/Navbar";
 
 
 async function page({params}) {
@@ -25,16 +26,18 @@ async function page({params}) {
   const courseInfo = result.course
 
 
-  const getMe = async()=>{
+
     const userAuth = await authUser()
     console.log(userAuth)
-  }
-  getMe()
+
+ 
   if(!courseInfo){
     return redirect("/404")
   }
   
   return (
+    <>
+    <Navbar isLogin={true}/>
     <div className=" max-w-7xl m-auto ">
     <div className="w-full flex  justify-center items-start mx-auto p-4 font-mainFont gap-5 max-md:flex-col">
 
@@ -173,6 +176,8 @@ async function page({params}) {
       </div>
     <Footer/>
     </div>
+    </>
+
   );
 }
 
