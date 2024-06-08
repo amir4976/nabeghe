@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
-
+require("./Courses")
+require("./Users")
 const enrollmentSchema = new mongoose.Schema({
   studentId: {
     type: mongoose.Types.ObjectId,

@@ -1,7 +1,7 @@
 import courseModel from "@/models/Courses";
 import { VerifyToken } from "@/utils/auth";
 import { NextResponse } from "next/server";
-import userModel from "@/models/users";
+import userModel from "@/models/Users";
 import commentModel from "@/models/Comments";
 import ConnectToDB from "@/utils/ConnectToDB";
 export async function GET() {

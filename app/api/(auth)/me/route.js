@@ -1,7 +1,7 @@
 import ConnectToDB from "@/utils/ConnectToDB";
 import { NextResponse } from "next/server";
 import { VerifyToken } from "@/utils/auth";
-import userModel from "@/models/users"
+import userModel from "@/models/Users"
 export async function POST(req) {
     ConnectToDB();
     const token = req.cookies.get("token")?.value;

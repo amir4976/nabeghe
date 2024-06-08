@@ -1,6 +1,6 @@
 
 import mongoose from "mongoose";
-
+require("./Courses")
 
 const LongDecSchema =new mongoose.Schema({
     title: {

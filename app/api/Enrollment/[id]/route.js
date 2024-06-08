@@ -1,5 +1,5 @@
 import ConnectToDB from "@/utils/ConnectToDB"
-import userModel from "@/models/users";
+import userModel from "@/models/Users";
 import enrollmentModel from "@/models/Enrollment";
 import courseModel from "@/models/Courses";
 export async function GET(req,{params}){

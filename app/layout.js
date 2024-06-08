@@ -39,7 +39,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
 
   return (
-    <html lang="en" data-theme='drak' suppressHydrationWarning={true}>
+    <html lang="en" data-theme='luxury' suppressHydrationWarning={true}>
       <body className={`${inter.className} ${yekanbakh.variable} `}>
         <AuthProvider>
         {children}

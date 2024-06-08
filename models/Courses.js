@@ -1,8 +1,10 @@
 import mongoose from "mongoose";
-
+require("./Users"); // Ensure these files are in the correct paths and named properly
+require("./Enrollment");
+require("./Comments");
 
 const CourseSchema = new mongoose.Schema({
-    courseName: { // this is what you use it in your code whene want click on the link
+    courseName: {
         type: String,
         required: true
     },
@@ -10,7 +12,7 @@ const CourseSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    price:{
+    price: {
         type: Number,
         required: true
     },
@@ -22,48 +24,40 @@ const CourseSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    category:{
+    category: {
         type: String,
         required: true
     },
-    teacher:{
+    teacher: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User', // Assuming you have a User model
+        ref: 'User', // Ensure the User model is correctly defined
         required: true
     },
-    score:{
+    score: {
         type: Number,
         default: 0
     },
-    image:{
+    image: {
         type: String,
         required: true
     },
-    comments:{
-        type: [
-            {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'Comment', // Assuming you have a Comment model
-            }
-        ]
-    }
-    ,
-    enrolls:{
-        type: [
-            {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'Enrollment', // Assuming you have a User model
-            }
-        ]
-    },
-    priceWhithDiscount:{
+    comments: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Comments', // Ensure the Comment model is correctly defined
+        }
+    ],
+    enrolls: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Enrollment', // Ensure the Enrollment model is correctly defined
+        }
+    ],
+    priceWhithDiscount: {
         type: Number,
         default: 0
     }
+});
 
-    
-    
-})
-
-const Exportmodule = mongoose.models.Course || mongoose.model('Course', CourseSchema)
-export default Exportmodule;
+const Course = mongoose.models.Course || mongoose.model('Course', CourseSchema);
+export default Course;

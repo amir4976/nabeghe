@@ -1,7 +1,7 @@
 import ConnectToDB from "@/utils/ConnectToDB";
 import mongoose from "mongoose";
 import { NextResponse } from "next/server";
-import userModel from '@/models/users'
+import userModel from '@/models/Users'
 import { HashedPassword } from "@/utils/auth";
 import { generateToken } from "@/utils/auth";
 

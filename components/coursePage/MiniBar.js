@@ -1,9 +1,41 @@
+
+'use client'
+
 import React from "react";
 import DotedTitle from "@/components/DotedTitle";
 import { FaHeart } from "react-icons/fa6";
 import { GoArrowUpLeft } from "react-icons/go";
 import Image from "next/image";
+import { ShowSwal } from "@/utils/ShowSwal";
 function MiniBar(data) {
+  const AddToFavorites = async () => {
+      // geting course id 
+    const courseId = data.id
+    // add to favorites 
+    const GetData = await fetch("/api/Favorites",{
+      method:"POST",
+      headers:{
+        'Content-Type':"application/json"
+      },
+      body:JSON.stringify({
+        courseID:courseId
+      })
+      
+    })
+    const response =await GetData.json()
+    // show swal for every statuse
+    if(GetData.status == 200){
+      ShowSwal({title:"added to favorites",icon:"success",text:"successfully added to favorites!!! 😀😁"})
+    }
+    if(GetData.status == 500){
+      ShowSwal({title:"not added to favorites",icon:"error",text:"amfride you already added this course to favorites"})
+    }
+    if(GetData.status == 400){
+      ShowSwal({title:"loggin please",icon:"error",text:"please loggin first"})
+     
+    }
+    
+  }
   return (
     <div className="flex w-4/12 max-md:w-full sticky top-24 rounded-3xl flex-col">
       <div className="bg-gradient-to-b from-primary-BG-gr to-secondary-BG-gr w-full sticky px-5 justify-center flex-col rounded-3xl">
@@ -34,7 +66,7 @@ function MiniBar(data) {
             اضافه به سبد
             <GoArrowUpLeft />
           </button>
-          <button className="p-4 rounded-full bg-primary-BG-gr flex items-center justify-center text-primary-color mr-2">
+          <button className="p-4 rounded-full bg-primary-BG-gr flex items-center justify-center text-primary-color mr-2" onClick={ () => AddToFavorites()} >
             <FaHeart />
           </button>
         </div>

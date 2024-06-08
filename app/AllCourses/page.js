@@ -8,7 +8,7 @@ import ConnectToDB from "@/utils/ConnectToDB";
 import Navbar from "@/components/mainPage/models/Navbar";
 async function page() { 
   ConnectToDB();
-  const res =await CourseModule.find({}).populate("teacher")
+  const res = await CourseModule.find({})?.populate("teacher");
   return (
     <>
     <Navbar isLogin={true} />

@@ -1,3 +1,5 @@
+
+"use client"
 import Image from "next/image";
 import { MdFileCopy } from "react-icons/md";
 import { MdOutlineAccessTimeFilled } from "react-icons/md";
@@ -5,10 +7,40 @@ import { GoArrowUpLeft } from "react-icons/go";
 import { FaHeart } from "react-icons/fa";
 import { RiAppsFill } from "react-icons/ri";
 import Link from "next/link";
-
+import { ShowSwal } from "@/utils/ShowSwal";
 function FancyCard({data}) {
-  console.log(data)
+  
   const { title, price, ShortDec, LongDec, category, score, image ,teacher,courseName} = data;
+    console.log(teacher)
+  const AddToFavorites = async () => {
+
+    const courseId = data._id
+    const GetData = await fetch("/api/Favorites",{
+      method:"POST",
+      headers:{
+        'Content-Type':"application/json"
+      },
+      body:JSON.stringify({
+        courseID:courseId
+      })
+      
+    })
+    const response =await GetData.json()
+    
+    if(GetData.status == 200){
+      ShowSwal({title:"added to favorites",icon:"success",text:"successfully added to favorites!!! 😀😁"})
+    }
+    if(GetData.status == 500){
+      ShowSwal({title:"not added to favorites",icon:"error",text:"amfride you already added this course to favorites"})
+    }
+    if(GetData.status == 400){
+      ShowSwal({title:"loggin please",icon:"error",text:"please loggin first"})
+     
+    }
+    
+  }
+
+
   return (
     <div className="w-full h-full flex justify-center items-center font-mainFont  relative  mt-3">
       <div className="h-full  w-full  ">
@@ -43,7 +75,7 @@ function FancyCard({data}) {
           <div className="profile-Price mt-4 flex items-center justify-between" >
             <div className="profile flex">
               {
-              teacher.name && (
+              teacher.name ? (
              <>
               <div className="profile-img relative w-10 h-10 rounded-full overflow-auto ">
                 <Image fill alt="profile" src={"/assets/01.jpeg"} />
@@ -53,7 +85,7 @@ function FancyCard({data}) {
                 <span className="font-bold text-xs">{teacher.name}</span>
               </div>
               </>
-              )    
+              ) :""   
               }
             </div>
             <div className="price flex flex-col items-end">
@@ -68,7 +100,7 @@ function FancyCard({data}) {
                   <GoArrowUpLeft />
                 </span>
             </Link>
-            <button className="w-[58px] h-[48px] mr-2 rounded-full flex justify-center items-center transition-all hover:text-red-600  bg-[rgba(120,120,120,0.33)] "><FaHeart /></button>
+            <button className="w-[58px] h-[48px] mr-2 rounded-full flex justify-center items-center transition-all hover:text-red-600  bg-[rgba(120,120,120,0.33)] " onClick={AddToFavorites} ><FaHeart /></button>
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+require("./Courses")
 const commentSchema =new mongoose.Schema({
   comment: {
     type: String,
