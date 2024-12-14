@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/mainPage/models/Navbar";
+import Navbar from "@/components/templates/mainPage/Navbar";
 import localFont from 'next/font/local'
 import AuthProvider from "@/context/Auth";
 const yekanbakh = localFont({
@@ -39,7 +39,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
 
   return (
-    <html lang="en" data-theme='luxury' suppressHydrationWarning={true}>
+    <html lang="en" data-theme='luxury' >
       <body className={`${inter.className} ${yekanbakh.variable} `}>
         <AuthProvider>
         {children}

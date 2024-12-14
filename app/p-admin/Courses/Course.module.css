@@ -1,0 +1,26 @@
+.table{
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-align: center;
+    padding: 10px;
+    table-layout: auto;
+}
+.table th{
+    border: 1px solid #7a7a7a;
+    line-height: 40px;
+    background-color: rgba(133,133,133,0.12);
+}
+.table tr{
+    margin-top: 20px;
+}
+
+.table td{
+    border-bottom: 1px solid #7a7a7a;
+    line-height: 40px;
+    color: #ffff;
+}
+ .table td>img{
+    width: 150px;
+    height: 100px;
+}

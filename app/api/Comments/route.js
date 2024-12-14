@@ -6,8 +6,7 @@ import userModel from '@/models/Users'
 import ConnectToDB from "@/utils/ConnectToDB";
 import courseModel from '@/models/Courses'
 export async function GET() {
-    
-    const comments = await commentModel.find()
+    const comments = await commentModel.find().populate('courseId').sort({createdAt:-1})
     return NextResponse.json({ comments }, { status: 200 })
 }
 
@@ -58,7 +57,7 @@ export async function POST(req) {
                 
                 return NextResponse.json({ message: "comment created" }, { status: 201 })
     } catch (error) {
-            console.log(error)
+      
             return NextResponse.json({ message: "Please" })
    
     }

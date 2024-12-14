@@ -12,11 +12,11 @@ export default function AuthProvider({children}){
     const [token , setToken] = useState('')
 
     const logIn = (userInfo, token) => {
-        console.log(token,userInfo);
+
         setToken(token);
         setIsLoggedIn(true);
         setUserInfos(userInfo);
-        console.log(UserInfos)
+
         // localStorage.setItem("user", JSON.stringify({ token }));
       };
     

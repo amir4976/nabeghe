@@ -1,5 +1,5 @@
-import DotedTitle from "@/components/DotedTitle"
-import FavoritesFancyCard from "@/components/Favorites/FavoritesFancyCard"
+import DotedTitle from "@/components/templates/mainPage/DotedTitle"
+import FavoritesFancyCard from "@/components/module/Favorites/FavoritesFancyCard"
 import FavoritesModels from "@/models/Favorites"
 import { authUser } from "@/utils/authUser"
 import ConnectToDB from "@/utils/ConnectToDB"

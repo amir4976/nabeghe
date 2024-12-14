@@ -15,7 +15,8 @@ export async function POST(req) {
     }
     const user  = await userModel.findOne({
         email: isTokenVerify.email,
-    }, "firstname name username role")
+    }, "firstname name username phoneNumber email role")
+    
     
     if(!user){
         return NextResponse.json({ message: "user not found!!!" }, { status: 400 });

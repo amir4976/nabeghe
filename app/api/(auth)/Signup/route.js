@@ -9,9 +9,10 @@ import { generateToken } from "@/utils/auth";
 export async function POST (req) {
     // connect to db
     ConnectToDB()
-   
+
     // get and check data from client
     const {name,username,email,password,phoneNumber} = await req.json();
+    console.log(name,username,email,password,phoneNumber)
     if(name.trim() === "" || !username || email.trim() === "" || password.trim() === "" || phoneNumber.trim() === "" ){
         return NextResponse.json({message:"all fields are required"});
     }

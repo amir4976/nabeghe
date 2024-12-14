@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import Footer from '@/components/Footer'
+import Footer from '@/components/templates/mainPage/Footer'
 function notFound() {
   return (
     <div className='w-full h-screen mt-[-100px] flex justify-center items-center flex-col font-mainFont'>

@@ -11,7 +11,7 @@ import { sign, verify } from "jsonwebtoken";
 }
 
  function generateToken (email){
-    return sign({ email }, process.env.JWT_SECRET_KEY, { expiresIn: "1d" });
+    return sign({ email }, process.env.JWT_SECRET_KEY, { expiresIn: "10d" });
 }
 
  function VerifyToken (token){

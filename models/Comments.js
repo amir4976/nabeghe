@@ -23,6 +23,10 @@ const commentSchema =new mongoose.Schema({
     ref: 'Course', // Assuming you have a Course model
     required: true
   },
+  isAccepted:{
+    type:Boolean,
+    default:false
+  }
 
 
 });

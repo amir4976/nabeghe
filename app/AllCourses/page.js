@@ -1,11 +1,11 @@
-import HatLogo from "@/components/HatLogo";
-import FancyCard from "@/components/FancyCard";
-import Footer from "@/components/Footer";
-import FilterSide from "@/components/allCourse/FilterSide";
-import AllCoursesSort from "@/components/allCourse/AllCoursesSort";
+import HatLogo from "@/components/templates/mainPage/HatLogo";
+import FancyCard from "@/components/module/courses/FancyCard";
+import Footer from "@/components/templates/mainPage/Footer";
+import FilterSide from "@/components/templates/course/allCourse/FilterSide";
+import AllCoursesSort from "@/components/templates/course/allCourse/AllCoursesSort";
 import CourseModule from "@/models/Courses";
 import ConnectToDB from "@/utils/ConnectToDB";
-import Navbar from "@/components/mainPage/models/Navbar";
+import Navbar from "@/components/templates/mainPage/Navbar";
 async function page() { 
   ConnectToDB();
   const res = await CourseModule.find({})?.populate("teacher");

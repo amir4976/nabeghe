@@ -4,9 +4,9 @@ import ConnectToDB from '@/utils/ConnectToDB';
 
 export async function GET(req, { params }) {
     await ConnectToDB(); // Ensure the database connection is established
-    // console.log(params.id); // Check the params.id value for debugging
-    const course = await courseModel.findById(params.id).populate('teacher'); // Use findById instead of findOne
-    // console.log(course); // Log the course for debugging
+
+    const course = await courseModel.find({courseName:params.id}).populate('teacher'); // Use findById instead of findOne
+
     if (!course) {
         return NextResponse.json({ error: 'Course not found' }, { status: 404 });
     }

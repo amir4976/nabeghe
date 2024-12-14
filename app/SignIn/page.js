@@ -1,8 +1,8 @@
 "use client"
 import React, { useEffect, useState } from "react";
-import SignInCard from "@/components/Login_or_Regester/SignInByPhoneCard";
-import Signin from "@/components/Login_or_Regester/Signin";
-import SignUp from "@/components/Login_or_Regester/SignUp";
+import SignInCard from "@/components/templates/Login_or_Regester/SignInByPhoneCard";
+import Signin from "@/components/templates/Login_or_Regester/Signin";
+import SignUp from "@/components/templates/Login_or_Regester/SignUp";
 import { authTypes } from "@/utils/constants";
 function Page() {
   

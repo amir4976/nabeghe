@@ -57,6 +57,15 @@ color: var(--foreground); */
 
 }
 
+.swal2-popup {
+  font-size: 1rem !important;
+  font-family: var(--main-black);
+  background-color: rgba(29, 29, 29, 0.425);
+  color: #fff;
+  border: #6e6e6e 1px solid;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
 /* .dark{
   background-color: red;
 } */
