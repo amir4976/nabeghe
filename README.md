@@ -1,6 +1,6 @@
 # Nabeghe
 
-![Project Screenshot](./insta story-01.jpg)
+![Nabeghe Cover](./insta%20story-01.jpg)
 
 Nabeghe is a modern learning platform for online courses, designed to deliver a seamless and efficient experience for both learners and educators. Built with cutting-edge technologies, Nabeghe combines a robust backend with a sleek and responsive user interface.
 
