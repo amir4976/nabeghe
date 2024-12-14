@@ -3,6 +3,7 @@ import enrollmentModel from "@/models/Enrollment";
 import userModel from "@/models/Users";
 import courseModel from "@/models/Courses";
 import { NextResponse } from "next/server";
+import { authUser } from "@/utils/authUser";
 
 export async function POST(req){
     ConnectToDB()
@@ -27,7 +28,7 @@ export async function POST(req){
         studentId,
         courseId
     })
-    console.log(createEnrollment._id)
+
     const updateCourse = await courseModel.updateOne({ _id: createEnrollment.courseId }, {  $push: { enrolls: createEnrollment._id } })
     
     return NextResponse.json({message:"student enrolled"})
@@ -37,3 +38,25 @@ export async function POST(req){
     return NextResponse.json({message:"hello"})
 }
 
+
+export async function GET(){
+
+    ConnectToDB()
+    // console.log(id)
+    // const isUser =await userModel.findOne({_id:id})
+    const isUser =await authUser()
+    const id = isUser.id;
+    
+    if(!isUser){
+        return NextResponse.json({message:"user not found"})
+    }
+    const enrollment = await enrollmentModel.find({studentId:id},'courseId')
+
+
+
+    const courses = await courseModel.find({_id:{ $in: enrollment.map(item => item.courseId)}})
+    console.log(courses)
+
+    return Response.json({courses})
+
+}

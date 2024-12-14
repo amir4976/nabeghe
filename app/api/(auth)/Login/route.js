@@ -15,7 +15,7 @@ export function DELETE() {
 export async function POST(req) {
   ConnectToDB();
   const { identifire,password } = await req.json();
-  console.log(password)
+
 
 
   if (!identifire.trim()) {

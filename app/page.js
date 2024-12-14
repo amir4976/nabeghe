@@ -1,11 +1,11 @@
-import Landing from "@/components/mainPage/models/Landing";
-import Testimonial from "@/components/mainPage/models/Testimonial";
-import WhyUs from "@/components/mainPage/models/WhyUs";
-import LastCourses from "@/components/mainPage/models/lastCourses";
-import Footer from "@/components/Footer";
+import Landing from "@/components/templates/mainPage/Landing";
+import Testimonial from "@/components/templates/mainPage/Testimonial";
+import WhyUs from "@/components/templates/mainPage/WhyUs";
+import LastCourses from "@/components/templates/mainPage/lastCourses";
+import Footer from "@/components/templates/mainPage/Footer";
 import { authUser } from "@/utils/authUser";
 import courseModel from '@/models/Courses'
-import Navbar from "@/components/mainPage/models/Navbar";
+import Navbar from "@/components/templates/mainPage/Navbar";
 export default async function Home() {
   const user = await authUser();
   const data = await courseModel.find({});

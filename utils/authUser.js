@@ -6,7 +6,7 @@ import { cookies } from "next/headers";
 export function authUser() {
   ConnectToDB();
   const AccessToken = cookies().get("token")?.value;
-  console.log(AccessToken)
+
   let user = null;
   if (AccessToken) {
     const tokenPayload =  VerifyToken(AccessToken);

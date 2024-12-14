@@ -1,13 +1,13 @@
-import Footer from '@/components/Footer'
+import Footer from '@/components/templates/mainPage/Footer'
 import React from 'react'
-import DushbouardMenu from '@/components/p-user/DushbouardMenu'
+import DushbouardMenu from '@/components/module/p-user/DushbouardMenu'
 import ConnectToDB from '@/utils/ConnectToDB'
 import { VerifyToken } from '@/utils/auth'
 import userModel from '@/models/Users'
 import { redirect } from 'next/navigation'
 import { cookies } from 'next/headers'
 import { authUser } from '@/utils/authUser'
-import Navbar from '@/components/mainPage/models/Navbar'
+import Navbar from '@/components/templates/mainPage/Navbar'
 async function layout({children}) {
 
  const user = await authUser()

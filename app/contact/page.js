@@ -1,5 +1,5 @@
 "use client"
-import Navbar from '@/components/mainPage/models/Navbar'
+import Navbar from '@/components/templates/mainPage/Navbar'
 import React from 'react'
 
 function page() {

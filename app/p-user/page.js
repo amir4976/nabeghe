@@ -1,9 +1,9 @@
 
 import React from 'react'
 import { authUser } from '@/utils/authUser';
-import EnrolledCourses from '@/components/p-user/EnrolledCourses';
+import EnrolledCourses from '@/components/module/p-user/EnrolledCourses';
 import EnrollmentModel from '@/models/Enrollment'
-import Cards from '@/components/p-user/Cards';
+import Cards from '@/components/module/p-user/Cards';
 
 async function page() {
     const AuthUser = await authUser()

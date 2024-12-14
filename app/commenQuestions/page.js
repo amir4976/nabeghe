@@ -1,7 +1,7 @@
 "use client";
-import Draver from "@/components/CommenQuestions/Draver";
-import Footer from "@/components/Footer";
-import Navbar from "@/components/mainPage/models/Navbar";
+import Draver from "@/components/templates/mainPage/CommenQuestions/Draver";
+import Footer from "@/components/templates/mainPage/Footer";
+import Navbar from "@/components/templates/mainPage/Navbar";
 import React, { useState } from "react";
 import { FaAngleDown } from "react-icons/fa6";
 function Page() {
