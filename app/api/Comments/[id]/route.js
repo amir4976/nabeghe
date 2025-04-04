@@ -2,8 +2,9 @@ import { authUser } from "@/utils/authUser";
 import ConnectToDB from "@/utils/ConnectToDB";
 import commentModel from "@/models/Comments";
 import UserModel from '@/models/Users'
-export async function GET (req,{params}) {
 
+export async function GET (req,{params}) {
+ 
     ConnectToDB();
     const {id} = params;
     const findUser = await UserModel.findById(id)
@@ -11,6 +12,9 @@ export async function GET (req,{params}) {
     const comments = await commentModel.find({user:findUser._id}).populate('courseId').lean().sort({createdAt:-1});
     return Response.json(comments)
 }
+
+
+
 
 export async function DELETE (req,{params}) {
     ConnectToDB();

@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/templates/mainPage/Navbar";
+
 import localFont from 'next/font/local'
 import AuthProvider from "@/context/Auth";
 const yekanbakh = localFont({
