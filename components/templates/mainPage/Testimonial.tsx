@@ -9,8 +9,7 @@ import "swiper/css";
 import "swiper/css/effect-cards";
 
 // import required modules
-import { EffectCards ,Autoplay} from "swiper/modules";
-import { MdSchool } from "react-icons/md";
+import { EffectCards, Autoplay } from "swiper/modules";
 import TestimonialCard from "./TestimonialCard";
 import HatLogo from "@/components/templates/mainPage/HatLogo";
 
@@ -18,7 +17,7 @@ export default function Testimonial() {
   return (
     <div className="w-full h-[350px] md:grid md:grid-cols-12   mt-10 font-mainFont">
       <div className="xl:col-span-4 col-span-12 flex items-center gap-5">
-            <HatLogo/>
+        <HatLogo />
         <div className="flex flex-col ">
           <span className="font-bold text-2xl text-primary-color">
             در مورد نابغه جی میشنویم؟
@@ -37,7 +36,6 @@ export default function Testimonial() {
             modules={[EffectCards]}
             loop={true}
             className="mySwiper"
-
           >
             <SwiperSlide className="bg-none rounded-2xl">
               <TestimonialCard />

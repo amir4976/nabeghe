@@ -39,7 +39,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
 
   return (
-    <html lang="en" data-theme='luxury' >
+    <html lang="en" data-theme='sunset' >
       <body className={`${inter.className} ${yekanbakh.variable} `}>
         <AuthProvider>
         {children}

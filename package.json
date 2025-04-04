@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@next/font": "^14.1.4",
+    "@splinetool/react-spline": "^4.0.0",
     "@sweetalert2/themes": "^5.0.16",
     "aws4": "^1.12.0",
     "bcrypt": "^5.1.1",
@@ -36,6 +37,8 @@
     "turbo": "^2.0.11"
   },
   "devDependencies": {
+    "@types/node": "22.14.0",
+    "@types/react": "19.1.0",
     "autoprefixer": "^10.0.1",
     "daisyui": "^4.9.0",
     "eslint": "^8",

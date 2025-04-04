@@ -12,7 +12,7 @@ function Navbar({ isLogin }) {
   const router = useRouter();
   const [ShowSideBar, setShowSideBar] = useState(false);
   const [AllCourses, setAllCourses] = useState([]);
-  const [userRole ,setUserRole] = useState('')
+  const [User ,setUser] = useState('')
 
   useEffect(() => {
     const GetCourseData = async () => {
@@ -23,14 +23,16 @@ function Navbar({ isLogin }) {
       const getMe = await fetch('/api/me',{
         method:"POST"
       })
+      console.log(getMe)
       
       if(!getMe.ok){
       return false
       }
       
       const GetMeData = await getMe.json()
-      setUserRole(GetMeData.user.role)
+      setUser(GetMeData)
     };
+
     GetCourseData();
   }, []);
 
@@ -133,7 +135,7 @@ function Navbar({ isLogin }) {
                   <SlBasket />
                 </Link>
                 <div className="profile-info  flex justify-center items-center gap-3">
-                  <NavProfileInfo userRole = {userRole} />
+                  <NavProfileInfo user={User} />
                 </div>
               </div>
             </div>
