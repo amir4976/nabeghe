@@ -1,5 +1,5 @@
 
-"use client"; // <===== REQUIRED
+"use client"; 
 
 import React,{useState,useEffect} from "react";
 
@@ -17,25 +17,23 @@ import 'swiper/css/free-mode';
 
 const CourseSwiper= ({data}) => {
   const LastCourses = data.slice(data.length-5,data.lenght);
-  const [SlidePRE,setSlidePRE] = useState(3)  
-  useEffect(()=>{
-      window.addEventListener('resize',(e)=>{
-        if(e.target.innerWidth < 1100){
-          setSlidePRE(2)
-        }
-        if(e.target.innerWidth < 660){
-          setSlidePRE(1)
-        }
-        if(e.target.innerWidth > 1100){
-          setSlidePRE(3)
-        }
-      })
-  },[])
 
   return (
 <div className="w-full h-[500px] mt-10">
       <Swiper
-        slidesPerView={SlidePRE}
+        breakpoints={{
+          // when window width is >= 640px
+          660: {
+            slidesPerView: 1,
+          },
+          // when window width is >= 768px
+          768: {
+            slidesPerView: 2,
+          },
+          1100: {
+            slidesPerView: 3,
+          }
+        }}
         // freeMode={true}
         autoplay={{
           delay: 2500,
