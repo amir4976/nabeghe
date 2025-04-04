@@ -5,8 +5,7 @@ import { IoTime } from "react-icons/io5";
 import { GrInstagram } from "react-icons/gr";
 import { BiLogoTelegram } from "react-icons/bi";
 import { PiYoutubeLogoBold } from "react-icons/pi";
-import { LuDot } from "react-icons/lu";
-import { GoDotFill } from "react-icons/go";
+
 
 function Footer() {
   return (

@@ -10,29 +10,12 @@ import { VscCommentDiscussion } from "react-icons/vsc";
 import { useContext } from "react";
 import { Auth } from "@/context/Auth";
 import { getToken } from "@/utils/GetToken";
-function NavProfileInfo({userRole}) {
+function NavProfileInfo({user}:any) {
   const ref = useRef(null);
   const [ShowProfileMenu, setShowProfileMenu] = useState(false);
-
   const [isLoggedIn,UserInfos,logIn,logOut] = useContext(Auth)
-  // useEffect run every time that user refresh and user login user if any token exist 
-  useEffect(()=>{
-    const test = async ()=>{
-     const token = await getToken()
-     if(!token){
-      return false
-     }
 
-     const Request = await fetch('/api/me',{method:'POST'})
-        .then(res=>res.json())
-        .then(result =>logIn(result.user,token))
-    }
 
-    test()
-    
-  },[])
-  
-  
   
   useEffect(() => {
     const handleOutSideClick = (event) => {
@@ -83,7 +66,7 @@ function NavProfileInfo({userRole}) {
           <li>
             <Link
               className="  hover:text-blue-600 py-2 px-4  whitespace-no-wrap flex"
-              href={userRole === 'ADMIN' ? "/p-admin" :"/p-user"}
+              href={user.role === 'ADMIN' ? "/p-admin" :"/p-user"}
             >
               <span className="text-lg mx-1">
                 <HiOutlineSparkles />
