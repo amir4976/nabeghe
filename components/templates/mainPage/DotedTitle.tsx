@@ -1,6 +1,6 @@
 import React from 'react'
 
-function DotedTitle({title:string}) {
+function DotedTitle({title}:{title:string}) {
   return (
     <div>
         <div className="flex items-center font-bold" >
