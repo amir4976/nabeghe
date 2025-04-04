@@ -4,7 +4,7 @@ interface props {
   title: string;
   desc: string;
   icon: React.ReactNode;
-  href: string;
+  href?: string;
 }
 function MainPageTitle({ title, desc, icon, href }: props) {
   return (

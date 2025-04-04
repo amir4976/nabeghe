@@ -6,7 +6,7 @@ import Table from "@/components/templates/cart/Table";
 function page() {
   return (
     <>
-      <Navbar />
+      <Navbar isLogin={true} />
       <div className="max-w-7xl m-auto">
         <Table/>
         <LastCourses />
