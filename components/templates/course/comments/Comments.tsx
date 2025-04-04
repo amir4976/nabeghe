@@ -1,8 +1,15 @@
 import React from 'react'
 import CommentForm from './CommentForm'
 import CommentCard from './CommentCard'
-
-function Comments({comments,courseID}) {
+interface IComment {
+    _id:string,
+    user:string,
+    courseId:string,
+    comment:string,
+    isAccepted:boolean,
+    createdAt:string
+}
+function Comments({comments,user,courseID}:{comments:IComment[],courseID:string,user:any}) {
 
     const allComments = comments.filter((e)=>e.isAccepted=== true)
   return (

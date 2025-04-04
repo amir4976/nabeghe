@@ -14,6 +14,7 @@ export function authUser() {
     if (tokenPayload) {
       user = userModel.findOne({ email: tokenPayload.email });
     }
+    
   }
   return user;
 }

@@ -20,17 +20,17 @@ import ConnectToDB from "@/utils/ConnectToDB";
 import Comments from "@/components/templates/course/comments/Comments";
 
 async function page({ params }) {
+  ConnectToDB();
+  const course = await courseModel
+    .find({ courseName: params.id })
+    .populate("teacher");
+  const courseInfo = JSON.parse(JSON.stringify(course[0]));
+  const userAuth = await authUser();
+  const comments = await CommnetsModels.find({ courseId: courseInfo._id });
 
-    ConnectToDB();
-    const course = await courseModel.find({ courseName: params.id }).populate("teacher");
-    const courseInfo = JSON.parse(JSON.stringify(course[0]));
-    const userAuth = await authUser();
-    const comments = await CommnetsModels.find({ courseId: courseInfo._id });
-
-    if (!courseInfo) {
-      return redirect("/404");
-    }
-  
+  if (!courseInfo) {
+    return redirect("/404");
+  }
 
   return (
     <>
@@ -63,7 +63,7 @@ async function page({ params }) {
             </div>
 
             {/* ---------------------------------------------------------------------------------------------------- */}
-           
+
             {/* course info */}
             <div className="grid grid-cols-8 gap-5 mt-5">
               <InfoBlock title={"مدت دوره"} value={"14:54"} icon={<IoTime />} />

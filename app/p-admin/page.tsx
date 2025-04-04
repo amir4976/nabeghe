@@ -1,4 +1,4 @@
-import PanelLayout from "@/components/layout/PanelLayout";
+
 import Chart from "@/components/module/p-admin/Chart";
 import DashbouardCard from "@/components/module/p-user/DashbouardCard";
 import DotedTitle from "@/components/templates/mainPage/DotedTitle";
@@ -8,10 +8,8 @@ import { MdSchool } from "react-icons/md";
 import courseModel from "@/models/Courses";
 import usersModel from "@/models/Users";
 import commentModel from "@/models/Comments";
-import Swal from "sweetalert2";
 import FancyCard from "@/components/module/courses/FancyCard";
-import { CiAlignRight } from "react-icons/ci";
-import UserTable from "@/components/module/p-admin/userTable";
+import UserTable from "@/components/module/p-admin/UserTable";
 import CommentsTable from "@/components/module/p-admin/CommentsTable";
 // import TicketModel from "@/models/";
 
