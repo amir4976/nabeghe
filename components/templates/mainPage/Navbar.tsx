@@ -146,6 +146,7 @@ function Navbar({ isLogin }) {
         </div>
       </div>
       {/* side bar */}
+      
       <div
         className={`interSideBar-bg fixed  w-full h-screen top-0 bg-[#5f5f5f8a] z-[50] ${
           ShowSideBar ? "" : "hidden"

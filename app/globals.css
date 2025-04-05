@@ -3,6 +3,8 @@
 @tailwind utilities;
 
 :root {
+  --primary:#1D4ED8;
+  
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -10,7 +12,7 @@
   --foreground: 240 10% 3.9%;
   --secondary: 240 4.8% 95.9%;
   --secondary-foreground: 240 5.9% 10%;
-  --primary:#1D4ED8;
+
   --primary-foreground: 0 0% 100%;
   --info: 188.7 94.5% 42.7%;
   --info-foreground: 0 0% 100%;
@@ -23,40 +25,16 @@
   --muted: 215 13.8% 34.1%;
   --border: 240 5.9% 90%;
   --radius: 0.75rem;
-
 }
 
-/* :root { */
-  /* Your default theme */
-  /* --background: white;
-  --foreground: black; */
-
-/* } */
 
 
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+body{
+  direction: rtl;
+   padding: 0;
+   margin: 0;
+   box-sizing:border-box;
 }
-
-html,body{
-  scroll-behavior: smooth;
-}
-body {
-direction: rtl;
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-/* background-color: var(--background);
-color: var(--foreground); */
-
-
-}
-
 .swal2-popup {
   font-size: 1rem !important;
   font-family: var(--main-black);

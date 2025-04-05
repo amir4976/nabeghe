@@ -1,6 +1,6 @@
 "use client"
-import React, { useEffect, useState } from "react";
-import SignInCard from "@/components/templates/Login_or_Regester/SignInByPhoneCard";
+import React, {  useState } from "react";
+import SignInCard from "@/components/templates/Login_or_Regester/SignInByPhoneCard"; // ?
 import Signin from "@/components/templates/Login_or_Regester/Signin";
 import SignUp from "@/components/templates/Login_or_Regester/SignUp";
 import { authTypes } from "@/utils/constants";
@@ -12,7 +12,7 @@ function Page() {
   const login = ()=>setAuthType(authTypes.LOGIN)
 
   return (
-    <div className="w-full h-screen mt-[-80px] overflow-hidden flex justify-center items-center bg-black font-mainFont flex-col">
+    <div className="w-full h-screen mt-[-80px] overflow-hidden flex justify-center items-center  font-mainFont flex-col">
       {/* <SignInCard /> */}
       {
         AuthType==authTypes.REGESTER ? (
